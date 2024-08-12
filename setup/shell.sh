@@ -19,7 +19,7 @@ fi
 
 if [ "$DIST" = "ubuntu" ] || [ "$DIST" = "debian" ]; then
     $Sudo apt update
-    $Sudo apt install -y gpg
+    $Sudo apt install -y gpg wget curl git
     
     # Install zsh
     $Sudo apt install -y zsh
@@ -32,7 +32,7 @@ if [ "$DIST" = "ubuntu" ] || [ "$DIST" = "debian" ]; then
     $Sudo chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
     $Sudo apt update
 
-    $Sudo apt install -y htop neofetch bat fd-find ripgrep hyperfine zoxide fzf tmux wget eza
+    $Sudo apt install -y htop neofetch bat fd-find ripgrep hyperfine zoxide fzf tmux eza
 elif [ "$DIST" = "arch" ]; then
     $Sudo pacman -Syu
 
@@ -41,7 +41,7 @@ elif [ "$DIST" = "arch" ]; then
     $Sudo chsh -s $(which zsh)
 
     # Install unix tools
-    $Sudo pacman -S htop neofetch bat fd ripgrep hyperfine zoxide fzf tmux wget eza
+    $Sudo pacman -S htop neofetch bat fd ripgrep hyperfine zoxide fzf tmux wget eza curl git
 else 
     echo "Unsupported distribution."
     exit 1
