@@ -3,7 +3,7 @@ name: Serve to Meadow
 on:
   push:
     branches:
-      - main
+      - static
 
 jobs:
   serve:
