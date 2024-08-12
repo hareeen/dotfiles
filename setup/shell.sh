@@ -56,6 +56,6 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 # Install starship
 curl -sS https://starship.rs/install.sh | sh -s -- -y
 
-# Copy zshrc
-cp .zshrc ~/.zshrc
-source ~/.zshrc
+# Download zshrc
+[ -f ~/.zshrc ] && mv ~/.zshrc ~/.zshrc.bak
+curl -sS https://meadow.hareen.io/dotfiles/.zshrc -o ~/.zshrc

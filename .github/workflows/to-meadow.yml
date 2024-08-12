@@ -20,4 +20,4 @@ jobs:
             [ -d dotfiles ] || git clone https://github.com/${{ github.repository }}
             cd dotfiles
             git pull
-            nginx -s reload
+            /usr/share/nginx/sbin/nginx -s reload
