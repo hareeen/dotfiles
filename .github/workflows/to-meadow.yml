@@ -1,0 +1,22 @@
+name: Serve to Meadow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  serve:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          script: |
+            cd /var/www/meadow
+            git pull
+            nginx -s reload
+            exit
