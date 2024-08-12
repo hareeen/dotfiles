@@ -1,4 +1,4 @@
-FROM quay.io/vessl-ai/torch:2.3.1-cuda12.1
+FROM pytorch/pytorch:2.3.1-cuda12.1-cudnn8-devel
 
 # run shell.sh
 COPY ./setup/shell.sh ./shell.sh
