@@ -17,8 +17,7 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
             cd /var/www/meadow
-            [-d dotfiles] && git clone https://github.com/hareeen/dotfiles.git
+            [ -d dotfiles ] && git clone https://github.com/${{ github.repository }}
             cd dotfiles
             git pull
             nginx -s reload
-            exit
