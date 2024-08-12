@@ -16,11 +16,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: actions/checkout@v4
+        with:
+          repository: slowGPU/burning_gpu
+          path: burning_gpu
+          sparse-checkout: |
+            requirements.txt
+
       - uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ github.token }}
 
       - uses: docker/build-push-action@v6
         with:

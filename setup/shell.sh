@@ -30,6 +30,7 @@ if [ "$DIST" = "ubuntu" ] || [ "$DIST" = "debian" ]; then
     wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | $Sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
     echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | $Sudo tee /etc/apt/sources.list.d/gierens.list
     $Sudo chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
+    $Sudo apt update
 
     $Sudo apt install -y htop neofetch bat fd-find ripgrep hyperfine zoxide fzf tmux wget eza
 elif [ "$DIST" = "arch" ]; then
