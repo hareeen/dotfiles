@@ -3,7 +3,7 @@ name: Push Image (fastmri)
 on:
   push:
     branches:
-      - main
+      - fastmri
 
 jobs:
   push:
@@ -20,6 +20,7 @@ jobs:
         with:
           repository: slowGPU/burning_gpu
           path: burning_gpu
+          token: ${{ secrets.GH_PAT }}
           sparse-checkout: |
             requirements.txt
 
