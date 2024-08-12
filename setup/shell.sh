@@ -22,13 +22,13 @@ if [ "$DIST" = "ubuntu" ] || [ "$DIST" = "debian" ]; then
     $Sudo apt install -y gpg
     
     # Install zsh
-    $Sudo apt install zsh
+    $Sudo apt install -y zsh
     $Sudo chsh -s $(which zsh)
 
     # Install unix tools
     $Sudo mkdir -p /etc/apt/keyrings
-    wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
-    echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | sudo tee /etc/apt/sources.list.d/gierens.list
+    wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | $Sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
+    echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | $Sudo tee /etc/apt/sources.list.d/gierens.list
     $Sudo chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
 
     $Sudo apt install -y htop neofetch bat fd-find ripgrep hyperfine zoxide fzf tmux wget eza
@@ -54,7 +54,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 # Install starship
-curl -sS https://starship.rs/install.sh | sh
+curl -sS https://starship.rs/install.sh | sh -s -- -y
 
 # Copy zshrc
 cp .zshrc ~/.zshrc
