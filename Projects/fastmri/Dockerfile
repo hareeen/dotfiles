@@ -16,9 +16,8 @@ WORKDIR /root/burning_gpu
 RUN git init
 RUN git remote add origin https://github.com/slowGPU/burning_gpu.git
 
-# mlflow ui
-RUN mlflow ui --host 0.0.0.0 --port 5000
+# open port for mlflow
 EXPOSE 5000
 
 # copy setup.sh
-# COPY ./Projects/fastmri/setup.sh /root/setup.sh
+COPY ./Projects/fastmri/setup.sh /root/setup.sh
