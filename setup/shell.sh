@@ -32,7 +32,7 @@ if [ "$DIST" = "ubuntu" ] || [ "$DIST" = "debian" ]; then
     $Sudo chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
     $Sudo apt update
 
-    $Sudo apt install -y htop neofetch bat fd-find ripgrep hyperfine zoxide fzf tmux eza
+    $Sudo apt install -y tmux openssh-server htop neofetch bat fd-find ripgrep hyperfine zoxide fzf eza
 elif [ "$DIST" = "arch" ]; then
     $Sudo pacman -Syu --noconfirm
 
@@ -41,7 +41,7 @@ elif [ "$DIST" = "arch" ]; then
     $Sudo chsh -s $(which zsh)
 
     # Install unix tools
-    $Sudo pacman -S --nonconfirm htop neofetch bat fd ripgrep hyperfine zoxide fzf tmux wget eza curl git
+    $Sudo pacman -S --nonconfirm wget tmux openssh htop neofetch bat fd ripgrep hyperfine zoxide fzf eza curl git
 else 
     echo "Unsupported distribution."
     exit 1
