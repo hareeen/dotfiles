@@ -16,7 +16,6 @@ WORKDIR /root/burning_gpu
 RUN git init
 RUN git branch -M main
 RUN git remote add origin https://github.com/slowGPU/burning_gpu.git
-RUN git branch --set-upstream-to=origin/main main
 
 # run ssh
 EXPOSE 22
