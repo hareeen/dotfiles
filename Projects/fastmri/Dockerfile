@@ -14,10 +14,19 @@ RUN rm requirements.txt
 RUN mkdir -p /root/burning_gpu
 WORKDIR /root/burning_gpu
 RUN git init
+RUN git branch -M main
 RUN git remote add origin https://github.com/slowGPU/burning_gpu.git
+
+# run ssh
+EXPOSE 22
+RUN service ssh start
+RUN echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 
 # open port for mlflow
 EXPOSE 5000
 
 # copy setup.sh
 COPY ./Projects/fastmri/setup.sh /root/setup.sh
+
+# shell as zsh
+CMD ["/bin/zsh"]
