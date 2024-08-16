@@ -10,6 +10,10 @@ COPY ./burning_gpu/requirements.txt ./requirements.txt
 RUN pip install -r requirements.txt
 RUN rm requirements.txt
 
+# install s3fs
+RUN apt update
+RUN apt install -y s3fs
+
 # set up repository
 RUN mkdir -p /root/burning_gpu
 WORKDIR /root/burning_gpu
