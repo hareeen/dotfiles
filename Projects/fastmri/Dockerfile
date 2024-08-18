@@ -12,11 +12,7 @@ RUN rm requirements.txt
 
 # install cv2 lib
 RUN apt update
-RUN apt install -y libgl1-mesa-glx
-
-# install s3fs
-RUN apt update
-RUN apt install -y s3fs
+RUN apt install -y s3fs libgl1-mesa-glx
 
 # set up repository
 RUN mkdir -p /root/burning_gpu
