@@ -14,10 +14,9 @@ jobs:
       packages: write
 
     steps:
-      - uses: easimon/maximize-build-space@v10
-        with:
-          remove-dotnet: true
-          remove-android: true
+      - run: |
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /usr/local/lib/android
 
       - uses: actions/checkout@v4
 
