@@ -1,4 +1,4 @@
-name: Push Image (fastmri)
+name: Push Image (ashotchu)
 
 on:
   push:
