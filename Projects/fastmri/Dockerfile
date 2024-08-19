@@ -10,6 +10,10 @@ COPY ./burning_gpu/requirements.txt ./requirements.txt
 RUN pip install -r requirements.txt
 RUN rm requirements.txt
 
+# install cv2 lib
+RUN apt update
+RUN apt install -y s3fs libgl1-mesa-glx
+
 # set up repository
 RUN mkdir -p /root/burning_gpu
 WORKDIR /root/burning_gpu
@@ -19,8 +23,8 @@ RUN git remote add origin https://github.com/slowGPU/burning_gpu.git
 
 # run ssh
 EXPOSE 22
-RUN service ssh start
 RUN echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+RUN service ssh start
 
 # open port for mlflow
 EXPOSE 5000
