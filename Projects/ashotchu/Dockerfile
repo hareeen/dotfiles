@@ -24,7 +24,7 @@ RUN git remote add origin https://github.com/Smoooth-Brain/AShotChu.git
 RUN git clone https://github.com/chengtan9907/OpenSTL.git
 
 # download data
-COPY /root/Projects/ashotchu/mmnist.sh ./mmnist.sh
+COPY ./Projects/ashotchu/mmnist.sh ./mmnist.sh
 RUN sh mmnist.sh
 RUN rm mmnist.sh
 
