@@ -14,6 +14,9 @@ RUN rm requirements.txt
 RUN apt update
 RUN apt install -y s3fs libgl1-mesa-glx
 
+# install ruff
+RUN curl -LsSf https://astral.sh/ruff/install.sh | sh
+
 # set up repository
 RUN mkdir -p /root/burning_gpu
 WORKDIR /root/burning_gpu
