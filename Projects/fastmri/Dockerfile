@@ -24,10 +24,10 @@ RUN git init
 RUN git branch -M main
 RUN git remote add origin https://github.com/slowGPU/burning_gpu.git
 
-# run ssh
+# configure ssh
 EXPOSE 22
 RUN echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
-RUN service ssh start
+RUN service ssh enable
 
 # open port for mlflow
 EXPOSE 5000

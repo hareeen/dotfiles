@@ -37,7 +37,7 @@ RUN service ssh enable
 EXPOSE 5000
 
 # Manipulate PATH
-ENV PATH
+RUN echo "export PATH=$PATH:/usr/local/nvidia/bin:/usr/local/cuda/bin:/opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" >> /root/.zshrc
 
 # shell as zsh
 CMD ["/bin/zsh"]
