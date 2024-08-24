@@ -19,7 +19,7 @@ fi
 
 if [ "$DIST" = "ubuntu" ] || [ "$DIST" = "debian" ]; then
     $Sudo apt update
-    $Sudo apt install -y gpg wget curl git
+    $Sudo apt install -y gpg wget curl git net-tools psmisc lsof tmux openssh-server
 
     # Add repositories
     $Sudo mkdir -p /etc/apt/keyrings
@@ -30,13 +30,13 @@ if [ "$DIST" = "ubuntu" ] || [ "$DIST" = "debian" ]; then
     $Sudo add-apt-repository ppa:neovim-ppa/stable
 
     $Sudo apt update
-    
+
     # Install zsh
     $Sudo apt install -y zsh
     $Sudo chsh -s $(which zsh)
 
     # Install tools
-    $Sudo apt install -y tmux openssh-server htop neofetch bat fd-find ripgrep hyperfine zoxide fzf eza neovim
+    $Sudo apt install -y htop neofetch bat fd-find ripgrep hyperfine zoxide fzf eza neovim
 elif [ "$DIST" = "arch" ]; then
     $Sudo pacman -Syu --noconfirm
 
@@ -45,8 +45,9 @@ elif [ "$DIST" = "arch" ]; then
     $Sudo chsh -s $(which zsh)
 
     # Install tools
-    $Sudo pacman -S --nonconfirm wget tmux openssh htop neofetch bat fd ripgrep hyperfine zoxide fzf eza curl git neovim
-else 
+    $Sudo pacman -S --noconfirm wget tmux openssh lsof net-tools git curl
+    $Sudo pacman -S --noconfirm wget htop neofetch bat fd ripgrep hyperfine zoxide fzf eza neovim
+else
     echo "Unsupported distribution."
     exit 1
 fi

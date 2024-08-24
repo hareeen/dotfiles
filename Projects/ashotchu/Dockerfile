@@ -1,7 +1,7 @@
 FROM pytorch/pytorch:2.3.1-cuda12.1-cudnn8-runtime
 
 # run shell.sh
-COPY ./setup/shell.sh ./shell.sh
+COPY ./scripts/shell.sh ./shell.sh
 RUN sh shell.sh
 RUN rm shell.sh
 
@@ -28,16 +28,16 @@ COPY ./Projects/ashotchu/mmnist.sh ./mmnist.sh
 RUN sh mmnist.sh
 RUN rm mmnist.sh
 
-# run ssh
+# configure ssh
 EXPOSE 22
 RUN echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
-RUN service ssh start
+RUN service ssh enable
 
 # open port for mlflow
 EXPOSE 5000
 
-# copy setup.sh
-# COPY ./Projects/fastmri/setup.sh /root/setup.sh
+# Manipulate PATH
+ENV PATH
 
 # shell as zsh
 CMD ["/bin/zsh"]
