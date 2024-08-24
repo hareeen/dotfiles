@@ -1,9 +1,9 @@
 FROM pytorch/pytorch:2.3.1-cuda12.1-cudnn8-runtime
 
-# run shell.sh
-COPY ./setup/shell.sh ./shell.sh
-RUN sh shell.sh
-RUN rm shell.sh
+# set up machine
+COPY ./scripts/setup_machine.sh ./setup_machine.sh
+RUN sh setup_machine.sh
+RUN rm setup_machine.sh
 
 # install requirements
 COPY ./burning_gpu/requirements.txt ./requirements.txt
