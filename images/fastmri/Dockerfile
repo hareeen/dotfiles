@@ -32,7 +32,7 @@ RUN echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 EXPOSE 5000
 
 # copy setup.sh
-COPY ./Projects/fastmri/setup.sh /root/setup.sh
+COPY ./images/fastmri/setup.sh /root/setup.sh
 
 # Manipulate PATH
 RUN echo "export PATH=$PATH:/usr/local/nvidia/bin:/usr/local/cuda/bin:/opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" >> /root/.zshrc
