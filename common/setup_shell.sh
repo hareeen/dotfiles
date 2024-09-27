@@ -64,4 +64,4 @@ curl -sS https://starship.rs/install.sh | sh -s -- -y
 
 # Download zshrc
 [ -f ~/.zshrc ] && mv ~/.zshrc ~/.zshrc.bak
-curl -sS https://meadow.hareen.io/dotfiles/.zshrc -o ~/.zshrc
+curl -sS https://meadow.hareen.io/dotfiles/misc/.zshrc -o ~/.zshrc

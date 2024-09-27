@@ -3,7 +3,12 @@ name: Push Image (ashotchu)
 on:
   push:
     branches:
-      - ashotchu
+      - main
+    paths:
+      - .github/workflows/push-image-ashotchu.yml
+      - images/ashotchu/**
+      - common/setup_shell.sh
+  workflow_dispatch:
 
 jobs:
   push:
@@ -39,7 +44,7 @@ jobs:
       - uses: docker/build-push-action@v6
         with:
           context: .
-          file: ./Projects/ashotchu/Dockerfile
+          file: ./images/ashotchu/Dockerfile
           push: true
           tags: ghcr.io/${{ github.repository_owner }}/ashotchu:latest
           cache-from: type=gha
