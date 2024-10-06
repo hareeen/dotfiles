@@ -1,5 +1,3 @@
-# Download moving MNIST dataset
-
 mkdir -p data/moving_mnist
 cd data/moving_mnist
 

@@ -12,7 +12,10 @@ RUN rm requirements.txt
 
 # install deps
 RUN apt update
-RUN apt install -y s3fs libgl1-mesa-glx tar
+RUN apt install -y libgl1-mesa-glx tar unzip
+
+# install ruff
+RUN curl -LsSf https://astral.sh/ruff/install.sh | sh
 
 # set up repository
 RUN mkdir -p /root/AShotChu
@@ -23,10 +26,13 @@ RUN git remote add origin https://github.com/Smoooth-Brain/AShotChu.git
 
 RUN git clone https://github.com/chengtan9907/OpenSTL.git
 
-# download data
-COPY ./images/ashotchu/mmnist.sh ./mmnist.sh
-RUN sh mmnist.sh
-RUN rm mmnist.sh
+# run prebuild script
+COPY ./images/ashotchu/prebuild prebuild
+RUN find prebuild -type f -name "*.sh" -exec sh {} \;
+RUN rm -rf prebuild
+
+# copy postbuild script
+COPY ./images/ashotchu/postbuild postbuild
 
 # configure ssh
 EXPOSE 22
