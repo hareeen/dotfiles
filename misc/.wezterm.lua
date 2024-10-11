@@ -2,7 +2,7 @@ local wezterm = require 'wezterm'
 
 local config = wezterm.config_builder()
 
-config.color_scheme = 'Banana Blueberry'
+config.color_scheme = 'Aura (Gogh)'
 config.window_background_opacity = 0.9
 
 config.font = wezterm.font 'FiraCode Nerd Font'
