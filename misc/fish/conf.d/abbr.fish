@@ -181,6 +181,6 @@ abbr -a ll 'eza -lh'
 abbr -a lsa 'eza -lah'
 abbr -a md 'mkdir -p'
 abbr -a rd rmdir
-abbr -a reload-fish 'source ~/.config/fish/config.fish'
+abbr -a reload-fish 'source ~/.config/fish/**/*.fish'
 abbr -a run-help man
 abbr -a which-command whence
