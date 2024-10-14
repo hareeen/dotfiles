@@ -1,4 +1,5 @@
 abbr -a _ sudo
+abbr -a cd z
 abbr -a egrep 'grep -E'
 abbr -a fgrep 'grep -F'
 abbr -a g git
