@@ -61,5 +61,5 @@ mkdir -p ~/.config/fish/conf.d
 touch ~/.config/fish/config.fish
 curl -sS https://meadow.hareen.io/dotfiles/misc/fish/conf.d/abbr.fish -o ~/.config/fish/conf.d/abbr.fish
 curl -sS https://meadow.hareen.io/dotfiles/misc/fish/conf.d/fish_color.fish -o ~/.config/fish/conf.d/fish_color.fish
-echo "starship init fish | source" >> ~/.config/fish/config.fish
+echo "starship init fish --print-full-init | sed 's/\"\$(commandline)\"/(commandline | string collect)/' | source" >> ~/.config/fish/config.fish
 echo "zoxide init fish | source" >> ~/.config/fish/config.fish
