@@ -28,12 +28,13 @@ if [ "$DIST" = "ubuntu" ] || [ "$DIST" = "debian" ]; then
     $Sudo chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
 
     $Sudo add-apt-repository ppa:neovim-ppa/stable
+    $Sudo apt-add-repository ppa:fish-shell/release-3
 
     $Sudo apt update
 
     # Install zsh
-    $Sudo apt install -y zsh
-    $Sudo chsh -s $(which zsh)
+    $Sudo apt install -y fish
+    $Sudo chsh -s $(which fish)
 
     # Install tools
     $Sudo apt install -y htop neofetch bat fd-find ripgrep hyperfine zoxide fzf eza neovim
@@ -41,8 +42,8 @@ elif [ "$DIST" = "arch" ]; then
     $Sudo pacman -Syu --noconfirm
 
     # Install zsh
-    $Sudo pacman -S --noconfirm zsh
-    $Sudo chsh -s $(which zsh)
+    $Sudo pacman -S --noconfirm fish
+    $Sudo chsh -s $(which fish)
 
     # Install tools
     $Sudo pacman -S --noconfirm wget tmux openssh lsof net-tools git curl
@@ -52,16 +53,8 @@ else
     exit 1
 fi
 
-# Install oh-my-zsh
-sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
-
-# Install omz plugins
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
 # Install starship
 curl -sS https://starship.rs/install.sh | sh -s -- -y
 
-# Download zshrc
-[ -f ~/.zshrc ] && mv ~/.zshrc ~/.zshrc.bak
-curl -sS https://meadow.hareen.io/dotfiles/misc/.zshrc -o ~/.zshrc
+curl -sS https://meadow.hareen.io/dotfiles/misc/fish/conf.d/abbr.fish -o ~/.config/fish/conf.d/abbr.fish
+curl -sS https://meadow.hareen.io/dotfiles/misc/fish/conf.d/fish_color.fish -o ~/.config/fish/conf.d/fish_color.fish
