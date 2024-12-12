@@ -5,6 +5,8 @@ COPY ./common/setup_shell.sh ./setup_shell.sh
 RUN sh setup_shell.sh
 RUN rm setup_shell.sh
 
+ENV container docker
+
 # cleanup services
 RUN pacman -Sy --noconfirm systemd-sysvcompat && \
     cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == systemd-tmpfiles-setup.service ] || rm -f $i; done ;\
@@ -17,5 +19,5 @@ RUN pacman -Sy --noconfirm systemd-sysvcompat && \
     rm -f /lib/systemd/system/anaconda.target.wants/*;\
     pacman -Syu --noconfirm
 
-# shell as fish
-CMD ["/usr/local/bin/fish"]
+VOLUME ["/sys/fs/cgroup"]
+CMD ["/sbin/init"]
