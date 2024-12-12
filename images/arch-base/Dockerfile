@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM archlinux:latest
 
 # set up machine
 COPY ./common/setup_shell.sh ./setup_shell.sh
