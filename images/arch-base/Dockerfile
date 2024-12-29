@@ -1,6 +1,8 @@
-FROM archlinux:latest
+# syntax=docker/dockerfile:1
+FROM archlinux:latest AS build
 
 ENV container "docker"
+
 RUN pacman -Syu --noconfirm; \
     yes | pacman -Scc; \
     (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == systemd-tmpfiles-setup.service ] || rm -f $i; done); \
@@ -13,10 +15,8 @@ RUN pacman -Syu --noconfirm; \
     rm -f /lib/systemd/system/basic.target.wants/*;\
     rm -f /lib/systemd/system/anaconda.target.wants/*;
 
-# set up machine
-COPY ./common/setup_shell.sh ./setup_shell.sh
-RUN sh setup_shell.sh
-RUN rm setup_shell.sh
-
-VOLUME ["/sys/fs/cgroup"]
 CMD ["/usr/sbin/init"]
+
+FROM build AS build_with_volume
+
+VOLUME [ "/sys/fs/cgroup" ]
