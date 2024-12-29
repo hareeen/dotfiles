@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - .github/workflows/push-image-ubuntu-cuda.yml
-      - images/ubuntu-cuda/**Ï
+      - images/ubuntu-cuda/**
       - common/setup_shell.sh
   workflow_dispatch:
 
