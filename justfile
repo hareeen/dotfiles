@@ -5,3 +5,6 @@ default:
 
 local:
     git add . && nix run . &| nom
+
+pca:
+    pre-commit run --all-files
