@@ -2,12 +2,12 @@
   home.file = {
     fishAbbrs = {
       enable = true;
-      source = ./resources/abbrs.fish;
+      source = ./abbrs.fish;
       target = ".config/fish/conf.d/abbrs.fish";
     };
     fishColors = {
       enable = true;
-      source = ./resources/colors.fish;
+      source = ./colors.fish;
       target = ".config/fish/conf.d/colors.fish";
     };
   };

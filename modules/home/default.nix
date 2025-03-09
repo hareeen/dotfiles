@@ -2,11 +2,14 @@
   home.stateVersion = "24.11";
 
   imports = [
-    ./all/fish.nix
-    ./all/terminal.nix
+    ./all/fish
+    ./all/terminal
+
+    ./all/vim.nix
+
+    ./all/utils.nix
 
     ./all/git.nix
-    # ./all/mise.nix
     ./all/direnv.nix
 
     # ./all/ghostty.nix

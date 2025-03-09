@@ -7,7 +7,6 @@ let
 in
 {
   imports = [
-    self.homeModules.default
-    ./common/me.nix
+    self.homeModules.lang
   ];
 }
