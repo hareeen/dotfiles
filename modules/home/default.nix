@@ -12,8 +12,6 @@
     ./all/git.nix
     ./all/direnv.nix
 
-    # ./all/ghostty.nix
-
     ./all/nix.nix
   ];
 }

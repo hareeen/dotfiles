@@ -21,9 +21,8 @@
     git-hooks.flake = false;
   };
 
-  outputs =
-    inputs@{ self, ... }:
-    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+  outputs = inputs @ {self, ...}:
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
       debug = true;
 
       systems = [
@@ -35,14 +34,16 @@
         with builtins; map (fn: ./modules/flake-parts/${fn}) (attrNames (readDir ./modules/flake-parts))
       );
 
-      perSystem =
-        { lib, system, ... }:
-        {
-          _module.args.pkgs = import inputs.nixpkgs {
-            inherit system;
-            overlays = lib.attrValues self.overlays;
-            config.allowUnfree = true;
-          };
+      perSystem = {
+        lib,
+        system,
+        ...
+      }: {
+        _module.args.pkgs = import inputs.nixpkgs {
+          inherit system;
+          overlays = lib.attrValues self.overlays;
+          config.allowUnfree = true;
         };
+      };
     };
 }

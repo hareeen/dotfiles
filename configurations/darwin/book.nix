@@ -1,11 +1,8 @@
-{ flake, ... }:
-
-let
+{flake, ...}: let
   inherit (flake) inputs;
   inherit (inputs) self;
   inherit (flake.config) me;
-in
-{
+in {
   imports = [
     self.darwinModules.default
   ];
@@ -29,7 +26,7 @@ in
 
   home-manager = {
     users."${me.username}" = {
-      imports = [ (self + /configurations/home/book-me.nix) ];
+      imports = [(self + /configurations/home/book-me.nix)];
     };
   };
 }

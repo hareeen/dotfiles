@@ -1,9 +1,6 @@
-{ flake, ... }:
-
-let
+{flake, ...}: let
   inherit (flake.config) me;
-in
-{
+in {
   programs = {
     git = {
       enable = true;

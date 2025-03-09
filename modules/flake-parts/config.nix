@@ -1,5 +1,4 @@
-{ lib, ... }:
-let
+{lib, ...}: let
   userSubmodule = lib.types.submodule {
     options = {
       username = lib.mkOption {
@@ -19,8 +18,7 @@ let
       # };
     };
   };
-in
-{
+in {
   imports = [
     ../../config.nix
   ];

@@ -1,9 +1,9 @@
-{ config
-, pkgs
-, lib
-, ...
-}:
 {
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   programs.direnv = {
     enable = true;
 
@@ -14,7 +14,7 @@
       enable = true;
       # Until https://github.com/nix-community/home-manager/pull/5773
       package = lib.mkIf (config.nix.package != null) (
-        pkgs.nix-direnv.override { nix = config.nix.package; }
+        pkgs.nix-direnv.override {nix = config.nix.package;}
       );
     };
 

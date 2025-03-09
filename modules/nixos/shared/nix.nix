@@ -1,10 +1,12 @@
-{ flake, pkgs, lib, ... }:
-
-let
+{
+  flake,
+  pkgs,
+  lib,
+  ...
+}: let
   inherit (flake) inputs;
   inherit (inputs) self;
-in
-{
+in {
   nixpkgs = {
     config = {
       allowBroken = true;
@@ -19,7 +21,7 @@ in
 
     package = pkgs.nixVersions.latest;
 
-    nixPath = [ "nixpkgs=${flake.inputs.nixpkgs}" ];
+    nixPath = ["nixpkgs=${flake.inputs.nixpkgs}"];
     registry.nixpkgs.flake = flake.inputs.nixpkgs;
 
     settings = {
@@ -29,7 +31,14 @@ in
       extra-platforms = lib.mkIf pkgs.stdenv.isDarwin "aarch64-darwin x86_64-darwin";
 
       flake-registry = builtins.toFile "empty-flake-registry.json" ''{"flakes":[],"version":2}'';
-      trusted-users = [ "root" (if pkgs.stdenv.isDarwin then flake.config.me.username else "@wheel") ];
+      trusted-users = [
+        "root"
+        (
+          if pkgs.stdenv.isDarwin
+          then flake.config.me.username
+          else "@wheel"
+        )
+      ];
     };
   };
 }

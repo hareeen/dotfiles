@@ -1,13 +1,12 @@
-{ flake
-, pkgs
-, ...
-}:
-let
+{
+  flake,
+  pkgs,
+  ...
+}: let
   inherit (flake) inputs;
   inherit (inputs) self;
   inherit (flake.config) me;
-in
-{
+in {
   imports = [
     self.nixosModules.common
   ];
@@ -17,7 +16,7 @@ in
     self.homeModules.darwin-only
   ];
 
-  users.knownUsers = [ me.username ];
+  users.knownUsers = [me.username];
   users.users.${me.username} = {
     uid = 501;
     name = me.username;

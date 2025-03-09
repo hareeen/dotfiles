@@ -5,7 +5,6 @@
 }: let
   inherit (flake) inputs;
   inherit (inputs) self;
-  inherit (flake.config) me;
 in {
   imports = [
     self.nixosModules.common
@@ -16,20 +15,14 @@ in {
     self.homeModules.linux-only
   ];
 
-  users.${me.username} = {
-    name = me.username;
-    home = "/home/${me.username}";
+  users.root = {
+    name = "root";
+    home = "/root";
+    uid = 0;
+    gid = 0;
     shell = pkgs.zsh;
-    isNormalUser = true;
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-    ];
-  };
-
-  security = {
-    sudo.execWheelOnly = true;
-    sudo.wheelNeedsPassword = false;
+    isSystemUser = true;
+    extraGroups = ["wheel"];
   };
 
   system.stateVersion = 24.11;
