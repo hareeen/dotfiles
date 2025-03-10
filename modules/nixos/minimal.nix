@@ -15,7 +15,7 @@ in {
     self.homeModules.linux-only
   ];
 
-  users.root = {
+  users.users.root = {
     name = "root";
     home = "/root";
     uid = 0;
