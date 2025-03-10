@@ -24,15 +24,24 @@ in {
     nixPath = ["nixpkgs=${flake.inputs.nixpkgs}"];
     registry.nixpkgs.flake = flake.inputs.nixpkgs;
 
-    gc = {
-      automatic = true;
-      interval = {
-        Weekday = 0;
-        Hour = 0;
-        Minute = 0;
-      };
-      options = "--delete-older-than 30d";
-    };
+    gc =
+      {
+        automatic = true;
+        options = "--delete-older-than 30d";
+      }
+      // (
+        if pkgs.stdenv.isLinux
+        then {
+          dates = "weekly";
+        }
+        else {
+          interval = {
+            Weekday = 0;
+            Hour = 0;
+            Minute = 0;
+          };
+        }
+      );
 
     optimise = {
       automatic = true;
