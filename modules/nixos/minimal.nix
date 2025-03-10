@@ -19,7 +19,6 @@ in {
     name = "root";
     home = "/root";
     uid = 0;
-    gid = 0;
     shell = pkgs.zsh;
     isSystemUser = true;
     extraGroups = ["wheel"];
