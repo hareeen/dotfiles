@@ -20,6 +20,7 @@
       adjust-cell-width = "-8%";
       adjust-cell-height = "4%";
       macos-titlebar-style = "tabs";
+      macos-option-as-alt = "left";
     };
   };
 }

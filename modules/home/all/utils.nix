@@ -5,6 +5,10 @@
     ouch
     wget
     dust
+    hyperfine
+    convmv
+    cloc
+    bunbun
   ];
 
   programs = {

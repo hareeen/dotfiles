@@ -1,12 +1,10 @@
-{ flake
-, ...
-}:
-let
+{flake, ...}: let
   inherit (flake) inputs;
   inherit (inputs) self;
-in
-{
+in {
   imports = [
-    self.homeModules.lang
+    self.homeModules.dev
+    self.homeModules.app
+    self.homeModules.app-darwin-only
   ];
 }

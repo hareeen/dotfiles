@@ -15,6 +15,9 @@
     # Additional inputs
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
+    mac-app-util.url = "github:hraban/mac-app-util";
+    fenix.url = "github:nix-community/fenix";
+    fenix.inputs.nixpkgs.follows = "nixpkgs";
 
     # Devshell
     git-hooks.url = "github:cachix/git-hooks.nix";

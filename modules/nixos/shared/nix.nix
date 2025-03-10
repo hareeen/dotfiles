@@ -24,6 +24,20 @@ in {
     nixPath = ["nixpkgs=${flake.inputs.nixpkgs}"];
     registry.nixpkgs.flake = flake.inputs.nixpkgs;
 
+    gc = {
+      automatic = true;
+      interval = {
+        Weekday = 0;
+        Hour = 0;
+        Minute = 0;
+      };
+      options = "--delete-older-than 30d";
+    };
+
+    optimise = {
+      automatic = true;
+    };
+
     settings = {
       max-jobs = "auto";
       experimental-features = "nix-command flakes";
