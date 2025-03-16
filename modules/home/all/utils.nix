@@ -6,6 +6,7 @@
     hexyl
     ouch
     wget
+    evans
     dust
     hyperfine
     convmv
