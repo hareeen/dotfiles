@@ -13,7 +13,6 @@
     cloc
     bunbun
     socat
-    tmux
   ];
 
   programs = {
