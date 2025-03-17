@@ -6,5 +6,6 @@ in {
     ./common/root.nix
     self.homeModules.default
     self.homeModules.linux-only
+    self.homeModules.dev
   ];
 }
