@@ -12,6 +12,7 @@
     convmv
     cloc
     bunbun
+    socat
   ];
 
   programs = {
