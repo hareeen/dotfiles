@@ -1,5 +1,5 @@
 {
   imports = [
-    ./all/k8s
+    ./all/k9s
   ];
 }
