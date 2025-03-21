@@ -14,6 +14,7 @@
     cloc
     bunbun
     socat
+    usql
 
     ffmpeg_6-full
     pandoc
