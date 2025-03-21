@@ -16,7 +16,6 @@
   };
 
   home.packages = with pkgs; [
-    k3s
     kubernetes-helm
     kustomize
   ];
