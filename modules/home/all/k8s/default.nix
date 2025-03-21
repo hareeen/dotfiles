@@ -5,7 +5,7 @@
 
       settings.ui = {
         enableMouse = true;
-        logless = true;
+        logoless = true;
         skin = "catppuccin-mocha-transparent";
       };
 
