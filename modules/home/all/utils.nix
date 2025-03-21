@@ -14,7 +14,9 @@
     cloc
     bunbun
     socat
-    k9s
+
+    ffmpeg_6-full
+    pandoc
   ];
 
   programs = {

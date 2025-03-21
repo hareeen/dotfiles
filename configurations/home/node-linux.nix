@@ -5,7 +5,8 @@ in {
   imports = [
     ./common/root.nix
     self.homeModules.default
-    self.homeModules.linux-only
-    self.homeModules.dev
+    self.homeModules.default-linux
+    self.homeModules.node
+    self.homeModules.node-linux
   ];
 }

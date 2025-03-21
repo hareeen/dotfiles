@@ -8,5 +8,12 @@
       "rustfmt"
     ])
     rust-analyzer
+
+    uv
+    bun
+    deno
+    go
+
+    supabase-cli
   ];
 }

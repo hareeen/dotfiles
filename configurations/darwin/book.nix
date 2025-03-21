@@ -26,7 +26,7 @@ in {
 
   home-manager = {
     users."${me.username}" = {
-      imports = [(self + /configurations/home/book-me.nix)];
+      imports = [(self + /configurations/home/desk-darwin.nix)];
     };
   };
 }

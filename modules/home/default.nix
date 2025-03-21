@@ -5,6 +5,8 @@
     ./all/fish
     ./all/terminal
 
+    ./all/dev.nix
+
     ./all/vim.nix
 
     ./all/utils.nix

@@ -3,8 +3,8 @@
   inherit (inputs) self;
 in {
   imports = [
-    self.homeModules.dev
-    self.homeModules.app
-    self.homeModules.app-darwin-only
+    ./common/root.nix
+    self.homeModules.default
+    self.homeModules.default-linux
   ];
 }

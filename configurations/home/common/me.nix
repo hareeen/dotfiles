@@ -7,9 +7,9 @@
   inherit (flake.config) me;
 in {
   home.username = me.username;
-  home.homeDirectory = lib.mkDefault "/${
+  home.homeDirectory = lib.mkDefault (
     if pkgs.stdenv.isDarwin
-    then "Users"
-    else "home"
-  }/${me.username}";
+    then /Users/${me.username}
+    else /home/${me.username}
+  );
 }
