@@ -7,6 +7,7 @@
     uv
     bun
     deno
+    go
 
     supabase-cli
   ];
