@@ -19,6 +19,5 @@
     k3s
     kubernetes-helm
     kustomize
-    kubectl
   ];
 }
