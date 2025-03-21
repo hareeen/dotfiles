@@ -6,6 +6,7 @@
     hexyl
     ouch
     wget
+    curl
     evans
     dust
     hyperfine
