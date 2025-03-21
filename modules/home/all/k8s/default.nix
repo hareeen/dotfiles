@@ -3,7 +3,7 @@
     k9s = {
       enable = true;
 
-      settings.ui = {
+      settings.k9s.ui = {
         enableMouse = true;
         logoless = true;
         skin = "catppuccin-mocha-transparent";
