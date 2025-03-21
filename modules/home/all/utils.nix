@@ -14,6 +14,7 @@
     cloc
     bunbun
     socat
+    k9s
   ];
 
   programs = {
