@@ -13,7 +13,5 @@
 
     ./all/git.nix
     ./all/direnv.nix
-
-    ./all/nix.nix
   ];
 }

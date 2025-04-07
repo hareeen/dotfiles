@@ -10,9 +10,18 @@
     rust-analyzer
 
     uv
+
     bun
     deno
+    biome
+
     go
+    gopls
+    golangci-lint
+
+    nil
+    nixd
+    alejandra
 
     supabase-cli
   ];

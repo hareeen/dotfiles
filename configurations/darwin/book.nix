@@ -11,6 +11,7 @@ in {
   networking.hostName = "book";
 
   security.pam.services.sudo_local.touchIdAuth = true;
+  # security.pam.enableSudoTouchIdAuth = true;
 
   system = {
     defaults = {

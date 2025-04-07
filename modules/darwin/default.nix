@@ -9,11 +9,11 @@
 in {
   imports = [
     self.nixosModules.common
-    inputs.mac-app-util.darwinModules.default
+    # inputs.mac-app-util.darwinModules.default
   ];
 
   home-manager.sharedModules = [
-    inputs.mac-app-util.homeManagerModules.default
+    # inputs.mac-app-util.homeManagerModules.default
   ];
 
   users.knownUsers = [me.username];

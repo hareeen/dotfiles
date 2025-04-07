@@ -4,6 +4,8 @@
   inputs = {
     # Principle inputs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs-24-11.url = "github:nixos/nixpkgs/release-24.11";
+
     flake-parts.url = "github:hercules-ci/flake-parts";
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
@@ -15,7 +17,7 @@
     # Additional inputs
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
-    mac-app-util.url = "github:hraban/mac-app-util";
+    # mac-app-util.url = "github:hraban/mac-app-util";
     fenix.url = "github:nix-community/fenix";
     fenix.inputs.nixpkgs.follows = "nixpkgs";
 
