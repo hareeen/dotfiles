@@ -7,7 +7,8 @@
 
     ./all/dev.nix
 
-    ./all/vim.nix
+    # ./all/vim.nix
+    ./all/helix.nix
 
     ./all/utils.nix
 
