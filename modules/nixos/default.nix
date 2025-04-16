@@ -11,12 +11,7 @@ in {
     self.nixosModules.common
   ];
 
-  home-manager.sharedModules = [
-    self.homeModules.default
-    self.homeModules.linux-only
-  ];
-
-  users.${me.username} = {
+  users.users.${me.username} = {
     name = me.username;
     home = "/home/${me.username}";
     shell = pkgs.zsh;

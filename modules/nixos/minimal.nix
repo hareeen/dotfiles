@@ -10,11 +10,6 @@ in {
     self.nixosModules.common
   ];
 
-  home-manager.sharedModules = [
-    self.homeModules.default
-    self.homeModules.linux-only
-  ];
-
   users.users.root = {
     name = "root";
     home = "/root";

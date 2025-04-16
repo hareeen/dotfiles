@@ -13,7 +13,7 @@
         "FiraCode Nerd Font"
         "Pretendard"
       ];
-      font-size = 16;
+      font-size = 11;
       background-opacity = 0.9;
       window-padding-x = 8;
       cursor-style = "bar";
