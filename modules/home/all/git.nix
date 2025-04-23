@@ -18,7 +18,7 @@ in {
 
       extraConfig = {
         init.defaultBranch = "main";
-        core.editor = "nvim";
+        core.editor = "hx";
         pull.rebase = "false";
       };
     };

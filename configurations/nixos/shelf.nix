@@ -48,7 +48,6 @@ in {
   };
 
   networking.hostName = "shelf"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -75,17 +74,77 @@ in {
     LC_TIME = "en_US.UTF-8";
   };
 
+  i18n.inputMethod = {
+    enable = true;
+    enabled = null;
+    type = "ibus";
+    ibus.engines = with pkgs.ibus-engines; [
+      hangul
+    ];
+  };
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+  environment.gnome.excludePackages = with pkgs; [
+    orca
+    evince
+    file-roller
+    geary
+    gnome-disk-utility
+    seahorse
+    # sushi
+    # sysprof
+    #
+    # gnome-shell-extensions
+    #
+    # adwaita-icon-theme
+    # nixos-background-info
+    gnome-backgrounds
+    # gnome-bluetooth
+    # gnome-color-manager
+    # gnome-control-center
+    # gnome-shell-extensions
+    gnome-tour # GNOME Shell detects the .desktop file on first log-in.
+    gnome-user-docs
+    # glib # for gsettings program
+    # gnome-menus
+    # gtk3.out # for gtk-launch program
+    # xdg-user-dirs # Update user dirs as described in https://freedesktop.org/wiki/Software/xdg-user-dirs/
+    # xdg-user-dirs-gtk # Used to create the default bookmarks
+    #
+    baobab
+    epiphany
+    gnome-text-editor
+    gnome-calculator
+    gnome-calendar
+    gnome-characters
+    # gnome-clocks
+    gnome-console
+    gnome-contacts
+    # gnome-font-viewer
+    gnome-logs
+    gnome-maps
+    gnome-music
+    # gnome-system-monitor
+    gnome-weather
+    # loupe
+    # nautilus
+    gnome-connections
+    simple-scan
+    snapshot
+    totem
+    yelp
+    gnome-software
+  ];
 
   # Configure keymap in X11
   services.xserver.xkb = {
-    layout = "us";
-    variant = "";
+    layout = "kr";
+    variant = "kr104";
   };
 
   # Enable CUPS to print documents.
@@ -111,21 +170,23 @@ in {
   # services.xserver.libinput.enable = true;
 
   # Install firefox.
-  programs.firefox.enable = true;
+  # programs.firefox.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  # environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
-  # ];
+  environment.systemPackages = with pkgs; [
+    gnome-tweaks
+    ibus
+  ];
 
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
     pretendard
+    noto-fonts-cjk-serif
+    noto-fonts-color-emoji
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -139,7 +200,10 @@ in {
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
+
+  # Enable tailscale
+  services.tailscale.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
