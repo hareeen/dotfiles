@@ -1,6 +1,6 @@
 {
   imports = [
-    ./shared/nix.nix
+    ./all/nix.nix
   ];
 
   home-manager.backupFileExtension = "before-nix";

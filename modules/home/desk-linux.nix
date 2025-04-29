@@ -7,6 +7,7 @@
 in {
   imports = [
     ./all/ghostty.nix
+
     inputs.zen-browser.homeModules.beta
   ];
 
@@ -23,5 +24,6 @@ in {
     bitwarden-desktop
     ungoogled-chromium
     legcord
+    zed-editor
   ];
 }

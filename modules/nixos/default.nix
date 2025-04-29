@@ -9,6 +9,13 @@
 in {
   imports = [
     self.nixosModules.common
+
+    ./all/audio.nix
+    ./all/font.nix
+    ./all/gnome.nix
+    ./all/graphics.nix
+    ./all/grub.nix
+    ./all/i18n.nix
   ];
 
   users.users.${me.username} = {
@@ -26,6 +33,12 @@ in {
     sudo.execWheelOnly = true;
     sudo.wheelNeedsPassword = false;
   };
+
+  # Enable networking
+  networking.networkmanager.enable = true;
+
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
 
   system.stateVersion = "24.11";
 }
