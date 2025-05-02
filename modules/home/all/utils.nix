@@ -18,7 +18,6 @@
 
     ffmpeg_6-full
     pandoc
-    bitwarden-cli
   ];
 
   programs = {
