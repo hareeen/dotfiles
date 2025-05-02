@@ -5,10 +5,10 @@ in {
     inputs.nixvim.homeManagerModules.nixvim
   ];
 
-  home.sessionVariables = {
-    EDITOR = "nvim";
-    VISUAL = "nvim";
-  };
+  # home.sessionVariables = {
+  #   EDITOR = "nvim";
+  #   VISUAL = "nvim";
+  # };
 
   programs.nixvim = {
     enable = true;
@@ -98,6 +98,10 @@ in {
         key = ">";
         action = ">gv";
         mode = "v";
+      }
+      {
+        key = "jk";
+        action = "<Esc>";
       }
     ];
 
