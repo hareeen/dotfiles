@@ -16,7 +16,7 @@ in {
     uid = 501;
     name = me.username;
     home = "/Users/${me.username}";
-    shell = pkgs.fish;
+    shell = "/bin/zsh";
   };
 
   system.stateVersion = 6;
