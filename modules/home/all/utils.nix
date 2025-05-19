@@ -14,6 +14,7 @@
     cloc
     bunbun
     socat
+    tun2socks
     usql
 
     ffmpeg_6-full
