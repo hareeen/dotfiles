@@ -14,7 +14,9 @@
     cloc
     bunbun
     socat
-    tun2socks
+    shadowsocks-rust
+    proxychains-ng
+    killall
     usql
 
     ffmpeg_6-full
