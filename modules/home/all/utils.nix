@@ -14,6 +14,9 @@
     cloc
     bunbun
     socat
+    shadowsocks-rust
+    proxychains-ng
+    killall
     usql
 
     typst

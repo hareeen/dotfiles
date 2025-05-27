@@ -26,4 +26,8 @@ in {
 
   # Enable tailscale
   services.tailscale.enable = true;
+
+  # systemd settings
+  systemd.targets.hibernate.enable = false;
+  systemd.targets.hybrid-sleep.enable = false;
 }
