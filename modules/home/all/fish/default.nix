@@ -10,15 +10,10 @@
       source = ./colors.fish;
       target = ".config/fish/conf.d/colors.fish";
     };
-    zshrc = {
+    pipe = {
       enable = true;
       source = ./pipe.sh;
-      target = ".zshrc";
-    };
-    bashrc = {
-      enable = true;
-      source = ./pipe.sh;
-      target = ".bashrc";
+      target = "pipe.sh";
     };
   };
 
