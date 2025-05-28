@@ -10,6 +10,11 @@
       source = ./colors.fish;
       target = ".config/fish/conf.d/colors.fish";
     };
+    zshrc = {
+      enable = true;
+      source = ./.zshrc;
+      target = ".zshrc";
+    };
   };
 
   programs.fish = {

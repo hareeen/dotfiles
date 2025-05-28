@@ -1,8 +1,4 @@
-{
-  flake,
-  pkgs,
-  ...
-}: let
+{flake, ...}: let
   inherit (flake) inputs;
   inherit (inputs) self;
   inherit (flake.config) me;
@@ -10,6 +6,8 @@ in {
   imports = [
     self.nixosModules.common
   ];
+
+  system.primaryUser = me.username;
 
   users.knownUsers = [me.username];
   users.users.${me.username} = {
