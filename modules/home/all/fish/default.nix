@@ -12,8 +12,13 @@
     };
     zshrc = {
       enable = true;
-      source = ./.zshrc;
+      source = ./pipe.sh;
       target = ".zshrc";
+    };
+    bashrc = {
+      enable = true;
+      source = ./pipe.sh;
+      target = ".bashrc";
     };
   };
 
