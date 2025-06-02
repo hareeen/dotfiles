@@ -1,12 +1,10 @@
-{flake, ...}: let
-  inherit (flake.config) me;
-in {
+{
   programs = {
     git = {
       enable = true;
 
-      userName = me.fullname;
-      userEmail = me.email;
+      # userName = me.fullname;
+      # userEmail = me.email;
 
       ignores = [
         ".DS_Store"
