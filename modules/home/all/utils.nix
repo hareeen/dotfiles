@@ -14,16 +14,18 @@
     cloc
     bunbun
     socat
-    shadowsocks-rust
-    proxychains-ng
     killall
     usql
+
+    shadowsocks-rust
+    proxychains-ng
 
     typst
     tinymist
 
     ffmpeg_6-full
     pandoc
+    rclone
   ];
 
   programs = {
