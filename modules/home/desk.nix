@@ -3,4 +3,8 @@
     # bitwarden-cli
     discordo
   ];
+
+  imports = [
+    ./all/tex.nix
+  ];
 }
