@@ -8,6 +8,7 @@ in {
   imports = [
     ./all/ghostty.nix
     ./all/zed.nix
+    ./all/vscode.nix
 
     inputs.zen-browser.homeModules.beta
   ];
