@@ -16,6 +16,7 @@
     socat
     killall
     usql
+    tmux
 
     shadowsocks-rust
     proxychains-ng
