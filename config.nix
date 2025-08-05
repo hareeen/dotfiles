@@ -6,7 +6,7 @@
   };
   opt = {
     enableVim = false;
-    enableUtils = false;
-    enableDevelopmentKit = false;
+    enableUtils = true;
+    enableDevelopmentKit = true;
   };
 }
