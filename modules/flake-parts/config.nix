@@ -10,12 +10,19 @@
       email = lib.mkOption {
         type = lib.types.str;
       };
-      # sshKey = lib.mkOption {
-      #   type = lib.types.str;
-      #   description = ''
-      #     SSH public key
-      #   '';
-      # };
+    };
+  };
+  buildOptionSubmodule = lib.types.submodule {
+    options = {
+      enableVim = lib.mkOption {
+        type = lib.types.bool;
+      };
+      enableUtils = lib.mkOption {
+        type = lib.types.bool;
+      };
+      enableDevelopmentKit = lib.mkOption {
+        type = lib.types.bool;
+      };
     };
   };
 in {
@@ -25,6 +32,9 @@ in {
   options = {
     me = lib.mkOption {
       type = userSubmodule;
+    };
+    opt = lib.mkOption {
+      type = buildOptionSubmodule;
     };
   };
 }

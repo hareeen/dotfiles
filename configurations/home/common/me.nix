@@ -8,7 +8,9 @@
 in {
   home.username = me.username;
   home.homeDirectory = lib.mkDefault (
-    if pkgs.stdenv.isDarwin
+    if me.username == "root"
+    then "/root"
+    else if pkgs.stdenv.isDarwin
     then /Users/${me.username}
     else /home/${me.username}
   );

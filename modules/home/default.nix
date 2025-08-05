@@ -1,18 +1,31 @@
-{
+{flake, ...}: let
+  inherit (flake.config) opt;
+in {
   home.stateVersion = "24.11";
 
-  imports = [
-    ./all/fish
-    ./all/terminal
+  imports =
+    [
+      ./all/fish
+      ./all/terminal
 
-    ./all/dev.nix
+      ./all/helix.nix
 
-    ./all/vim.nix
-    ./all/helix.nix
-
-    ./all/utils.nix
-
-    ./all/git.nix
-    ./all/direnv.nix
-  ];
+      ./all/git.nix
+      ./all/direnv.nix
+    ]
+    ++ (
+      if opt.enableVim
+      then [./all/vim.nix]
+      else []
+    )
+    ++ (
+      if opt.enableUtils
+      then [./all/utils.nix]
+      else []
+    )
+    ++ (
+      if opt.enableDevelopmentKit
+      then [./all/dev.nix]
+      else []
+    );
 }

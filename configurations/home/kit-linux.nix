@@ -3,7 +3,7 @@
   inherit (inputs) self;
 in {
   imports = [
-    ./common/root.nix
+    ./common/from-env-or-root.nix
     self.homeModules.default
     self.homeModules.default-linux
   ];
