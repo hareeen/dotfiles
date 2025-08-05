@@ -1,5 +1,6 @@
 {
   flake,
+  lib,
   pkgs,
   ...
 }: let
@@ -18,15 +19,17 @@ in {
     ./all/i18n.nix
   ];
 
-  users.users.${me.username} = {
-    name = me.username;
-    home = "/home/${me.username}";
-    shell = pkgs.zsh;
-    isNormalUser = true;
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-    ];
+  users.users = lib.optionalAttrs (me.username != "root") {
+    ${me.username} = {
+      name = me.username;
+      home = "/home/${me.username}";
+      shell = pkgs.zsh;
+      isNormalUser = true;
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+      ];
+    };
   };
 
   security = {
