@@ -7,7 +7,7 @@
   inherit (flake.config) me;
 in {
   home.username = me.username;
-  home.homeDirectory = lib.mkDefault (
+  home.homeDirectory = lib.mkForce (
     if me.username == "root"
     then /root
     else if pkgs.stdenv.isDarwin

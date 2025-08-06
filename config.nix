@@ -1,6 +1,6 @@
 {
   me = {
-    username = "hareen";
+    username = "root";
     fullname = "Suyoung Hwang";
     email = "me@hareen.io";
   };
