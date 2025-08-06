@@ -7,11 +7,11 @@
   inherit (flake.config) me;
 in {
   home.username = me.username;
-  home.homeDirectory = lib.mkForce (
+
+  home.homeDirectory =
     if me.username == "root"
-    then /root
+    then lib.mkForce /root
     else if pkgs.stdenv.isDarwin
-    then /Users/${me.username}
-    else /home/${me.username}
-  );
+    then lib.mkDefault /Users/${me.username}
+    else lib.mkDefault /home/${me.username};
 }
