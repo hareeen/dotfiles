@@ -9,5 +9,6 @@ in {
   home.packages = [
     tex
     pkgs.texlab
+    pkgs.bibtool
   ];
 }

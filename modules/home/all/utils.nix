@@ -17,6 +17,7 @@
     killall
     usql
     tmux
+    just
 
     shadowsocks-rust
     proxychains-ng
