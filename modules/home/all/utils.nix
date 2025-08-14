@@ -28,6 +28,7 @@
     ffmpeg_6-full
     pandoc
     rclone
+    teleport
   ];
 
   programs = {
