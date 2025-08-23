@@ -29,6 +29,8 @@
     pandoc
     rclone
     teleport
+
+    iamb
   ];
 
   programs = {
