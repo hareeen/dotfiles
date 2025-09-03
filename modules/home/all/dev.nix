@@ -24,5 +24,7 @@
     alejandra
 
     supabase-cli
+
+    dotnet-sdk
   ];
 }
