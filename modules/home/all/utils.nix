@@ -18,6 +18,7 @@
     usql
     tmux
     just
+    jq
 
     shadowsocks-rust
     proxychains-ng
