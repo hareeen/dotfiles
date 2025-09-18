@@ -1,14 +1,9 @@
 {pkgs, ...}: {
-  home.packages = with pkgs; [
-    (fenix.stable.withComponents [
-      "cargo"
-      "clippy"
-      "rust-src"
-      "rustc"
-      "rustfmt"
-    ])
-    rust-analyzer
+  imports = [
+    ./dev/rust.nix
+  ];
 
+  home.packages = with pkgs; [
     uv
 
     bun

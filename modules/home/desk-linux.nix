@@ -1,25 +1,9 @@
-{
-  flake,
-  pkgs,
-  ...
-}: let
-  inherit (flake) inputs;
-in {
+{pkgs, ...}: {
   imports = [
     ./all/ghostty.nix
     ./all/zed.nix
     ./all/vscode.nix
-
-    inputs.zen-browser.homeModules.beta
   ];
-
-  programs.zen-browser = {
-    enable = true;
-    policies = {
-      DisableAppUpdate = true;
-      DisableTelemetry = true;
-    };
-  };
 
   home.packages = with pkgs; [
     librewolf-bin
