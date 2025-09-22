@@ -20,8 +20,6 @@
     just
     jq
 
-    sshfs
-
     shadowsocks-rust
     proxychains-ng
 
