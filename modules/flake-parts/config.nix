@@ -5,10 +5,12 @@
         type = lib.types.str;
       };
       fullname = lib.mkOption {
-        type = lib.types.str;
+        type = lib.types.nullOr lib.types.str;
+        default = null;
       };
       email = lib.mkOption {
-        type = lib.types.str;
+        type = lib.types.nullOr lib.types.str;
+        default = null;
       };
     };
   };

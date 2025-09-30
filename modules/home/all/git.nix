@@ -1,12 +1,17 @@
-{flake, ...}: let
+{
+  flake,
+  lib,
+  ...
+}: let
   inherit (flake.config) me;
+  inherit (flake.config) opt;
 in {
   programs = {
     git = {
       enable = true;
 
-      userName = me.fullname;
-      userEmail = me.email;
+      userName = lib.mkIf (me ? fullname) me.fullname;
+      userEmail = lib.mkIf (me ? email) me.email;
 
       ignores = [
         ".DS_Store"
@@ -18,7 +23,10 @@ in {
 
       extraConfig = {
         init.defaultBranch = "main";
-        core.editor = "hx";
+        core.editor =
+          if opt.enableVim
+          then "nvim"
+          else "hx";
         pull.rebase = "false";
       };
     };
