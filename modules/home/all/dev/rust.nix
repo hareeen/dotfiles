@@ -8,15 +8,16 @@
   };
 
   home.packages = with pkgs; [
-    (fenix.stable.withComponents [
-      "cargo"
-      "clippy"
-      "rust-src"
-      "rustc"
-    ])
-    (fenix.complete.withComponents [
-      "rustfmt"
-    ])
+    (with fenix;
+      combine [
+        stable.cargo
+        stable.clippy
+        stable.rust-src
+        stable.rustc
+        complete.rustfmt
+        targets.wasm32-unknown-unknown.stable.rust-std
+      ])
+
     rust-analyzer
   ];
 }

@@ -31,7 +31,7 @@
     rclone
     teleport
 
-    iamb
+    wasmtime
   ];
 
   programs = {
