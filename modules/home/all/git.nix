@@ -11,8 +11,10 @@ in {
       enable = true;
 
       settings = {
-        name = lib.mkIf (me ? fullname) me.fullname;
-        email = lib.mkIf (me ? email) me.email;
+        user = {
+          name = lib.mkIf (me ? fullname) me.fullname;
+          email = lib.mkIf (me ? email) me.email;
+        };
         init.defaultBranch = "main";
         core.editor =
           if opt.enableVim
