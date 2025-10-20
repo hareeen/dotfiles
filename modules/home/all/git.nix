@@ -10,8 +10,16 @@ in {
     git = {
       enable = true;
 
-      userName = lib.mkIf (me ? fullname) me.fullname;
-      userEmail = lib.mkIf (me ? email) me.email;
+      settings = {
+        name = lib.mkIf (me ? fullname) me.fullname;
+        email = lib.mkIf (me ? email) me.email;
+        init.defaultBranch = "main";
+        core.editor =
+          if opt.enableVim
+          then "nvim"
+          else "hx";
+        pull.rebase = "false";
+      };
 
       ignores = [
         ".DS_Store"
@@ -20,15 +28,6 @@ in {
       ];
 
       lfs.enable = true;
-
-      extraConfig = {
-        init.defaultBranch = "main";
-        core.editor =
-          if opt.enableVim
-          then "nvim"
-          else "hx";
-        pull.rebase = "false";
-      };
     };
 
     gh = {
