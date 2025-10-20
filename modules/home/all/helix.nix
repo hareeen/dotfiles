@@ -26,6 +26,14 @@
           auto-format = true;
           formatter.command = "alejandra";
         }
+        {
+          name = "python";
+          auto-format = true;
+          formatter = {
+            command = "ruff";
+            args = ["format" "--line-length" "88" "-"];
+          };
+        }
       ];
     };
   };
