@@ -19,6 +19,7 @@
     tmux
     just
     jq
+    zellij
 
     shadowsocks-rust
     proxychains-ng
