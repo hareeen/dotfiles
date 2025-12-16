@@ -4,12 +4,10 @@
   pkgs,
   ...
 }: let
-  inherit (flake) inputs;
-  inherit (inputs) self;
   inherit (flake.config) me;
 in {
   imports = [
-    self.nixosModules.common
+    ../common
 
     ./all/audio.nix
     ./all/font.nix

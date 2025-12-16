@@ -1,10 +1,8 @@
 {flake, ...}: let
-  inherit (flake) inputs;
-  inherit (inputs) self;
   inherit (flake.config) me;
 in {
   imports = [
-    self.nixosModules.common
+    ../common
   ];
 
   system.primaryUser = me.username;

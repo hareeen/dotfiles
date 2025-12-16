@@ -42,5 +42,6 @@
     fd.enable = true;
     fastfetch.enable = true;
     btop.enable = true;
+    awscli.enable = true;
   };
 }
