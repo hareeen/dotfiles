@@ -19,5 +19,7 @@
     alejandra
 
     supabase-cli
+
+    cmake
   ];
 }
