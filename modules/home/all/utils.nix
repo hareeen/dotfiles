@@ -27,7 +27,7 @@
     typst
     tinymist
 
-    ffmpeg_6-full
+    ffmpeg-full
     pandoc
     rclone
     teleport
