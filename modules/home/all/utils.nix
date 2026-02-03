@@ -20,6 +20,7 @@
     just
     jq
     zellij
+    less
 
     shadowsocks-rust
     proxychains-ng
