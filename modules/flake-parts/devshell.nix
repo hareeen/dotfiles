@@ -15,9 +15,6 @@
         nix-output-monitor
         alejandra
 
-        # for managing generations
-        home-manager
-
         just
       ];
 

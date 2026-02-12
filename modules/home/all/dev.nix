@@ -18,6 +18,8 @@
     nixd
     alejandra
 
+    julia-bin
+
     supabase-cli
 
     cmake
