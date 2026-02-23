@@ -5,7 +5,7 @@
     email = "me@hareen.io";
   };
   opt = {
-    # If true, enables the installation of neovim and related plugins with nixvim.
+    # If true, enables the installation of neovim and related plugins with nixvim. Also set default editor to nvim.
     enableVim = false;
     # If true, enables various utility programs and scripts.
     enableUtils = true;

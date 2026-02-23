@@ -1,7 +1,9 @@
-{
+{flake, ...}: let
+  inherit (flake.config) opt;
+in {
   programs.helix = {
     enable = true;
-    defaultEditor = true;
+    defaultEditor = !opt.enableVim;
     settings = {
       theme = "amberwood";
       editor = {

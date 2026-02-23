@@ -2,13 +2,13 @@
   inherit (flake) inputs;
 in {
   imports = [
-    inputs.nixvim.homeManagerModules.nixvim
+    inputs.nixvim.homeModules.nixvim
   ];
 
-  # home.sessionVariables = {
-  #   EDITOR = "nvim";
-  #   VISUAL = "nvim";
-  # };
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+  };
 
   programs.nixvim = {
     enable = true;
@@ -29,21 +29,21 @@ in {
     };
 
     keymaps = [
-      {
-        key = "<leader>e";
-        action = "<cmd>NvimTreeToggle<CR>";
-        options.desc = "Explorer";
-      }
-      {
-        key = "<leader>;";
-        action = "<cmd>Alpha<CR>";
-        options.desc = "Dashboard";
-      }
-      {
-        key = "<leader>g";
-        action = "<cmd>Neogit<CR>";
-        options.desc = "Git";
-      }
+      # {
+      #   key = "<leader>e";
+      #   action = "<cmd>NvimTreeToggle<CR>";
+      #   options.desc = "Explorer";
+      # }
+      # {
+      #   key = "<leader>;";
+      #   action = "<cmd>Alpha<CR>";
+      #   options.desc = "Dashboard";
+      # }
+      # {
+      #   key = "<leader>g";
+      #   action = "<cmd>Neogit<CR>";
+      #   options.desc = "Git";
+      # }
       {
         key = "<leader>w";
         action = "<cmd>w!<CR>";
@@ -106,10 +106,10 @@ in {
     ];
 
     plugins = {
-      alpha = {
-        enable = true;
-        theme = "theta";
-      };
+      # alpha = {
+      #   enable = true;
+      #   theme = "theta";
+      # };
 
       which-key = {
         enable = true;
@@ -129,48 +129,50 @@ in {
       };
 
       web-devicons.enable = true;
-      nvim-tree = {
-        enable = true;
+      # nvim-tree = {
+      #   enable = true;
+      #
+      #   settings = {
+      #     sync_root_with_cwd = true;
+      #     respect_buf_cwd = true;
+      #     update_focused_file = {
+      #       enable = true;
+      #       update_root = true;
+      #     };
+      #   };
+      # };
+      # project-nvim = {
+      #   enable = true;
+      #   enableTelescope = true;
+      # };
+      # lir = {
+      #   enable = true;
+      #
+      #   settings = {
+      #     show_hidden_files = true;
+      #     devicons = {
+      #       enable = true;
+      #       highlight_dirname = true;
+      #     };
+      #     mappings = {
+      #       "-" = {
+      #         __raw = "require('lir.actions').up";
+      #       };
+      #       "<CR>" = {
+      #         __raw = "require('lir.actions').edit";
+      #       };
+      #       "<ESC>" = {
+      #         __raw = "require('lir.actions').quit";
+      #       };
+      #       "@" = {
+      #         __raw = "require('lir.actions').cd";
+      #       };
+      #     };
+      #     hide_cursor = true;
+      #   };
+      # };
 
-        syncRootWithCwd = true;
-        respectBufCwd = true;
-        updateFocusedFile = {
-          enable = true;
-          updateRoot = true;
-        };
-      };
-      project-nvim = {
-        enable = true;
-        enableTelescope = true;
-      };
-      lir = {
-        enable = true;
-
-        settings = {
-          show_hidden_files = true;
-          devicons = {
-            enable = true;
-            highlight_dirname = true;
-          };
-          mappings = {
-            "-" = {
-              __raw = "require('lir.actions').up";
-            };
-            "<CR>" = {
-              __raw = "require('lir.actions').edit";
-            };
-            "<ESC>" = {
-              __raw = "require('lir.actions').quit";
-            };
-            "@" = {
-              __raw = "require('lir.actions').cd";
-            };
-          };
-          hide_cursor = true;
-        };
-      };
-
-      neogit.enable = true;
+      # neogit.enable = true;
       gitsigns = {
         enable = true;
 
@@ -179,21 +181,21 @@ in {
         };
       };
 
-      navic.enable = true;
+      # navic.enable = true;
       lualine.enable = true;
-      bufferline = {
-        enable = true;
-        settings = {
-          options.offsets = [
-            {
-              filetype = "NvimTree";
-              text = "Explorer";
-              highlight = "PanelHeading";
-              padding = 1;
-            }
-          ];
-        };
-      };
+      # bufferline = {
+      #   enable = true;
+      #   settings = {
+      #     options.offsets = [
+      #       {
+      #         filetype = "NvimTree";
+      #         text = "Explorer";
+      #         highlight = "PanelHeading";
+      #         padding = 1;
+      #       }
+      #     ];
+      #   };
+      # };
 
       toggleterm = {
         enable = true;
@@ -205,22 +207,21 @@ in {
 
       treesitter.enable = true;
       treesitter-context.enable = true;
-      treesitter-refactor.enable = true;
       treesitter-textobjects.enable = true;
 
-      none-ls.enable = true;
+      # none-ls.enable = true;
       nvim-autopairs.enable = true;
       indent-blankline.enable = true;
-      guess-indent.enable = true;
+      # guess-indent.enable = true;
       illuminate.enable = true;
       comment.enable = true;
 
-      dap.enable = true;
-      dap-ui.enable = true;
+      # dap.enable = true;
+      # dap-ui.enable = true;
 
       luasnip.enable = true;
       friendly-snippets.enable = true;
-      schemastore.enable = true;
+      # schemastore.enable = true;
 
       telescope = {
         enable = true;
@@ -249,15 +250,15 @@ in {
             options.desc = "Branches";
             action = "git_branches";
           };
-          "<leader>fp" = {
-            options.desc = "Projects";
-            action = "projects";
-          };
+          # "<leader>fp" = {
+          #   options.desc = "Projects";
+          #   action = "projects";
+          # };
         };
         extensions = {
-          file-browser.enable = true;
-          ui-select.enable = true;
-          frecency.enable = true;
+          # file-browser.enable = true;
+          # ui-select.enable = true;
+          # frecency.enable = true;
           fzf-native.enable = true;
         };
       };
