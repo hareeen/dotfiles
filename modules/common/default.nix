@@ -6,6 +6,9 @@
   home-manager.backupFileExtension = "before-nix";
 
   # programs.bash.enable = true;
-  programs.zsh.enable = true;
-  programs.fish.enable = true;
+  programs.zsh = {
+    enable = true;
+    enableCompletion = false; # home-manager handles compinit
+    promptInit = ""; # starship handles the prompt
+  };
 }

@@ -1,14 +1,19 @@
-{pkgs, ...}: {
+{
+  flake,
+  pkgs,
+  ...
+}: let
+  inherit (flake.config) opt;
+in {
   programs.ghostty = {
     enable = true;
     package = pkgs.ghostty;
 
-    enableBashIntegration = true;
-    enableZshIntegration = true;
-    enableFishIntegration = true;
+    enableZshIntegration = !opt.enableFish;
+    enableFishIntegration = opt.enableFish;
 
     settings = {
-      theme = "mellow";
+      theme = "Nvim Dark";
       font-family = [
         "BlexMono Nerd Font"
         "Pretendard"
@@ -17,8 +22,6 @@
       background-opacity = 0.9;
       window-padding-x = 8;
       cursor-style = "bar";
-      macos-titlebar-style = "tabs";
-      macos-option-as-alt = "left";
     };
   };
 }

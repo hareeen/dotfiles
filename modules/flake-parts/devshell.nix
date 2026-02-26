@@ -17,13 +17,6 @@
 
         just
       ];
-
-      shellHook = ''
-        if [ -z "$IN_NIX_SHELL" ]; then
-          export IN_NIX_SHELL=1
-          exec ${pkgs.fish}/bin/fish
-        fi
-      '';
     };
 
     pre-commit.settings = {

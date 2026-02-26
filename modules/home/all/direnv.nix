@@ -1,14 +1,17 @@
 {
+  flake,
   config,
   pkgs,
   lib,
   ...
-}: {
+}: let
+  inherit (flake.config) opt;
+in {
   programs.direnv = {
     enable = true;
 
-    enableBashIntegration = true;
-    enableZshIntegration = true;
+    enableZshIntegration = !opt.enableFish;
+    enableFishIntegration = opt.enableFish;
 
     nix-direnv = {
       enable = true;

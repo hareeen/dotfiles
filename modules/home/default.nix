@@ -5,8 +5,7 @@ in {
 
   imports =
     [
-      ./all/fish
-      ./all/terminal
+      ./all/shell
 
       ./all/helix.nix
 
@@ -27,5 +26,10 @@ in {
       if opt.enableDevelopmentKit
       then [./all/dev.nix]
       else []
+    )
+    ++ (
+      if opt.enableFish
+      then [./all/fish.nix]
+      else [./all/zsh.nix]
     );
 }

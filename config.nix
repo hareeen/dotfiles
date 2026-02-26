@@ -11,5 +11,7 @@
     enableUtils = true;
     # If true, enables the development kit including programming languages and tools.
     enableDevelopmentKit = true;
+    # If true, enables the installation of fish shell and set it as the default interactive shell.
+    enableFish = true;
   };
 }

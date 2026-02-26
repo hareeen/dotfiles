@@ -27,6 +27,10 @@
         type = lib.types.bool;
         description = "If true, enables various utility programs and scripts.";
       };
+      enableFish = lib.mkOption {
+        type = lib.types.bool;
+        description = "If true, enables the installation of fish shell and set it as the default interactive shell.";
+      };
       enableDevelopmentKit = lib.mkOption {
         type = lib.types.bool;
         description = "If true, enables the development kit including programming languages and tools.";
