@@ -14,7 +14,7 @@ in {
     '';
     initContent = ''
       reflect-ghostty() {
-        command infocmp -x | ssh "$@" -- tic -x -
+        command infocmp -x xterm-ghostty | ssh "$@" -- tic -x -
       }
     '';
     autosuggestion.enable = true;

@@ -41,7 +41,7 @@ in {
     '';
     functions.reflect-ghostty = {
       description = "Sync Ghostty terminfo to a remote host";
-      body = "command infocmp -x | ssh $argv -- tic -x -";
+      body = "command infocmp -x xterm-ghostty | ssh $argv -- tic -x -";
     };
   };
 }
