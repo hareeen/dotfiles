@@ -1,41 +1,80 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [
-    less
-    coreutils-full
+{
+  pkgs,
+  lib,
+  ...
+}: {
+  home.packages = with pkgs;
+    [
+      # Core system utilities
+      coreutils-full
+      inetutils
+      procps
+      file
+      tree
+      lsof
+    ]
+    ++ lib.optionals pkgs.stdenv.isLinux [
+      psmisc
+    ]
+    ++ (with pkgs; [
+      # GNU tools
+      gnugrep
+      gnused
+      gawk
+      gnutar
+      gnupatch
+      diffutils
+      findutils
 
-    xh
-    hexyl
-    ouch
-    wget
-    curl
-    evans
-    dust
-    hyperfine
-    convmv
-    cloc
-    bunbun
-    socat
-    killall
-    usql
-    tmux
-    just
-    jq
-    zellij
-    less
+      # Compression
+      gzip
+      bzip2
+      xz
+      ouch
+      unzip
+      zip
 
-    shadowsocks-rust
-    proxychains-ng
+      # Network
+      curl
+      wget
+      xh
+      socat
+      doggo
+      shadowsocks-rust
+      proxychains-ng
 
-    typst
-    tinymist
+      # Terminal & shell
+      less
+      tmux
+      zellij
+      just
+      jq
 
-    ffmpeg-full
-    pandoc
-    rclone
-    teleport
+      # File & disk
+      dust
+      hexyl
+      rsync
+      rclone
+      convmv
 
-    wasmtime
-  ];
+      # Dev tools
+      entr
+      hyperfine
+      tokei
+      evans
+      usql
+      bunbun
+      wasmtime
+
+      # Media & docs
+      ffmpeg-full
+      pandoc
+      typst
+      tinymist
+
+      # Infra
+      teleport
+    ]);
 
   programs = {
     mcfly.enable = true;
