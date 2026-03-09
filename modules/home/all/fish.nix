@@ -1,17 +1,6 @@
 {lib, ...}: let
   inherit (import ./shell/aliases.nix) aliases abbrs;
 in {
-  programs.zsh = {
-    enable = true;
-    enableCompletion = false;
-    initContent = lib.mkOrder 500 ''
-      if [[ $- == *i* && -z "$IN_FISH" ]]; then
-        export IN_FISH=1
-        exec fish
-      fi
-    '';
-  };
-
   programs.fish = {
     enable = true;
     shellAbbrs = abbrs;

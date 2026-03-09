@@ -1,5 +1,10 @@
-{flake, ...}: let
+{
+  flake,
+  pkgs,
+  ...
+}: let
   inherit (flake.config) me;
+  inherit (flake.config) opt;
 in {
   imports = [
     ../common
@@ -12,7 +17,10 @@ in {
     uid = 501;
     name = me.username;
     home = "/Users/${me.username}";
-    shell = "/bin/zsh";
+    shell =
+      if opt.enableFish
+      then pkgs.fish
+      else pkgs.zsh;
   };
 
   system.stateVersion = 6;

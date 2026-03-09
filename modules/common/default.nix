@@ -11,4 +11,5 @@
     enableCompletion = false; # home-manager handles compinit
     promptInit = ""; # starship handles the prompt
   };
+  programs.fish.enable = true;
 }

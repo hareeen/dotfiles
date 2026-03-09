@@ -5,6 +5,7 @@
   ...
 }: let
   inherit (flake.config) me;
+  inherit (flake.config) opt;
 in {
   imports = [
     ../common
@@ -21,7 +22,10 @@ in {
     ${me.username} = {
       name = me.username;
       home = "/home/${me.username}";
-      shell = pkgs.zsh;
+      shell =
+        if opt.enableFish
+        then pkgs.fish
+        else pkgs.zsh;
       isNormalUser = true;
       extraGroups = [
         "networkmanager"
