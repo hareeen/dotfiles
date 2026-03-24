@@ -62,7 +62,6 @@
       hyperfine
       tokei
       evans
-      usql
       bunbun
       wasmtime
 
