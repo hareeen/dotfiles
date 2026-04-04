@@ -35,6 +35,7 @@ in {
             command = "ruff";
             args = ["format" "--line-length" "88" "-"];
           };
+          language-servers = ["ty" "ruff"];
         }
       ];
     };

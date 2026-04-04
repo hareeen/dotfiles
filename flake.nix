@@ -17,15 +17,12 @@
     # Additional inputs
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
-    # mac-app-util.url = "github:hraban/mac-app-util";
     fenix.url = "github:nix-community/fenix";
     fenix.inputs.nixpkgs.follows = "nixpkgs";
-    # zen-browser.url = "github:0xc000022070/zen-browser-flake";
-    # zen-browser.inputs.nixpkgs.follows = "nixpkgs";
 
     # Devshell
     git-hooks.url = "github:cachix/git-hooks.nix";
-    git-hooks.flake = false;
+    git-hooks.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs @ {self, ...}:

@@ -1,5 +1,7 @@
 {inputs, ...}: {
-  imports = [(inputs.git-hooks + /flake-module.nix)];
+  imports = [
+    inputs.git-hooks.flakeModule
+  ];
   perSystem = {
     config,
     pkgs,
@@ -19,8 +21,8 @@
       ];
     };
 
-    pre-commit.settings = {
-      hooks.alejandra.enable = true;
+    pre-commit.settings.hooks = {
+      alejandra.enable = true;
     };
   };
 }

@@ -5,9 +5,10 @@
 
   home.packages = with pkgs; [
     uv
+    ruff
+    ty
 
     bun
-    deno
     biome
 
     go

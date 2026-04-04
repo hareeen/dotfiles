@@ -1,4 +1,4 @@
-{lib, ...}: let
+let
   inherit (import ./shell/aliases.nix) aliases abbrs;
 in {
   programs.fish = {
