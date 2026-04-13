@@ -10,6 +10,8 @@ in {
     git = {
       enable = true;
 
+      signing.format = null;
+
       settings = {
         user = {
           name = lib.mkIf (me ? fullname) me.fullname;
