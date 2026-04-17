@@ -10,5 +10,7 @@ in {
     tex
     pkgs.texlab
     pkgs.bibtool
+
+    pkgs.tectonic
   ];
 }
