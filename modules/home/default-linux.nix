@@ -1,5 +1,1 @@
-{
-  imports = [
-    ./all/nix.nix
-  ];
-}
+{}
