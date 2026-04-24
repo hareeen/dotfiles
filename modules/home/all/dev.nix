@@ -21,6 +21,10 @@
 
     julia-bin
 
+    gleam
+    erlang
+    rebar3
+
     supabase-cli
 
     cmake
