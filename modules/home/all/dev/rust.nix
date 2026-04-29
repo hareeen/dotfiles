@@ -19,5 +19,23 @@
       ])
 
     rust-analyzer
+
+    cargo-outdated
+    cargo-edit
+
+    cargo-audit
+    cargo-deny
+
+    cargo-nextest
+
+    tokio-console
+    cargo-bloat
+    cargo-flamegraph
+    sccache
+
+    cargo-expand
+    cargo-machete
+
+    cargo-release
   ];
 }
