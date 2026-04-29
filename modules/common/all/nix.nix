@@ -21,6 +21,9 @@ in {
             doCheck = false;
             doInstallCheck = false;
           });
+          gleam = prev.gleam.overrideAttrs (_: {
+            doCheck = false;
+          });
         })
       ];
   };

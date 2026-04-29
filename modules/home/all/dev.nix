@@ -21,7 +21,7 @@
 
     julia-bin
 
-    # gleam
+    gleam
     erlang
     rebar3
 
