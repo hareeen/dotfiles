@@ -66,7 +66,6 @@
       wasmtime
 
       # Media & docs
-      ffmpeg_7-full
       pandoc
       typst
       tinymist
