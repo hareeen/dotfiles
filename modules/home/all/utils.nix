@@ -58,6 +58,7 @@
       convmv
 
       # Dev tools
+      cachix
       entr
       hyperfine
       tokei
