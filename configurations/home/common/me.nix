@@ -10,8 +10,8 @@ in {
 
   home.homeDirectory =
     if me.username == "root"
-    then lib.mkForce /root
+    then lib.mkForce "/root"
     else if pkgs.stdenv.isDarwin
-    then lib.mkDefault /Users/${me.username}
-    else lib.mkDefault /home/${me.username};
+    then lib.mkDefault "/Users/${me.username}"
+    else lib.mkDefault "/home/${me.username}";
 }
