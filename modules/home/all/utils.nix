@@ -73,6 +73,7 @@
 
       # Infra
       teleport
+      bubblewrap
     ]);
 
   programs = {
