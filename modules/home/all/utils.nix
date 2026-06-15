@@ -15,6 +15,7 @@
     ]
     ++ lib.optionals pkgs.stdenv.isLinux [
       psmisc
+      bubblewrap
     ]
     ++ (with pkgs; [
       # GNU tools
@@ -73,7 +74,6 @@
 
       # Infra
       teleport
-      bubblewrap
     ]);
 
   programs = {
