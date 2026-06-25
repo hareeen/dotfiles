@@ -8,6 +8,7 @@
     ruff
     ty
 
+    nodejs-slim
     bun
     biome
 
