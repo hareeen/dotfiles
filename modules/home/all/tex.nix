@@ -1,16 +1,8 @@
-{pkgs, ...}: let
-  tex = pkgs.texlive.combine {
-    inherit
-      (pkgs.texlive)
-      scheme-full
-      ;
-  };
-in {
+{pkgs, ...}: {
   home.packages = [
-    tex
+    pkgs.tectonic
+
     pkgs.texlab
     pkgs.bibtool
-
-    pkgs.tectonic
   ];
 }

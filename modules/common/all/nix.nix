@@ -30,7 +30,10 @@ in {
 
   nix = {
     enable = true;
-    package = pkgs.lixPackageSets.stable.lix;
+    package =
+      if pkgs.stdenv.isDarwin
+      then pkgs.lixPackageSets.stable.lix.overrideAttrs (_: {doInstallCheck = false;})
+      else pkgs.lixPackageSets.stable.lix;
 
     nixPath = ["nixpkgs=${flake.inputs.nixpkgs}"];
     registry.nixpkgs.flake = flake.inputs.nixpkgs;
