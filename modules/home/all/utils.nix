@@ -17,7 +17,10 @@
       psmisc
       bubblewrap
     ]
-    ++ (with pkgs; [
+    ++ lib.optionals pkgs.stdenv.isDarwin [
+      container
+    ]
+    ++ [
       # GNU tools
       gnugrep
       gnused
@@ -74,7 +77,7 @@
 
       # Infra
       teleport
-    ]);
+    ];
 
   programs = {
     mcfly.enable = true;
