@@ -69,6 +69,7 @@
       evans
       bunbun
       wasmtime
+      usql
 
       # Media & docs
       pandoc
@@ -77,6 +78,7 @@
 
       # Infra
       teleport
+      google-cloud-sdk
     ];
 
   programs = {
