@@ -6,6 +6,14 @@ default:
 local:
     git add . && nix run . &| nom
 
+# Activate a local or remote NixOS/nix-darwin configuration
+activate host="":
+    nix run .#activate {{host}}
+
+# Activate a local or remote Home Manager configuration
+home configuration host="":
+    just activate {{configuration}}@{{host}}
+
 update:
     nix flake update
 
