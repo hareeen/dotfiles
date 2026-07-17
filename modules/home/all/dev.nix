@@ -10,11 +10,9 @@
 
     nodejs-slim
     bun
-    biome
 
     go
     gopls
-    golangci-lint
 
     nil
     nixd
@@ -25,8 +23,6 @@
     gleam
     erlang
     rebar3
-
-    supabase-cli
 
     cmake
   ];
