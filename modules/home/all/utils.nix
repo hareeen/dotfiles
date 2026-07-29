@@ -3,6 +3,10 @@
   lib,
   ...
 }: {
+  imports = [
+    ./k9s
+  ];
+
   home.packages = with pkgs;
     [
       # Core system utilities
@@ -79,6 +83,10 @@
       # Infra
       teleport
       google-cloud-sdk
+      kubectl
+      kubernetes-helm
+      flux
+      k3d
     ];
 
   programs = {
