@@ -28,7 +28,10 @@ in
         {
           name = "nix";
           auto-format = true;
-          formatter.command = "nixfmt";
+          formatter = {
+            command = "nixfmt";
+            args = [ "-" ];
+          };
         }
         {
           name = "python";
