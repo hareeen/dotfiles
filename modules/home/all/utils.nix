@@ -12,8 +12,6 @@
     with pkgs;
     [
       # Core system utilities
-      coreutils-full
-      inetutils
       procps
       file
       tree
@@ -21,7 +19,10 @@
     ]
     ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
       psmisc
+      gnused
       bubblewrap
+      inetutils
+      coreutils-full
     ]
     ++ lib.optionals pkgs.stdenv.hostPlatform.isDarwin [
       container
@@ -29,7 +30,6 @@
     ++ [
       # GNU tools
       gnugrep
-      gnused
       gawk
       gnutar
       gnupatch
@@ -92,12 +92,21 @@
     ];
 
   programs = {
-    mcfly.enable = true;
     ripgrep.enable = true;
     bat.enable = true;
     fd.enable = true;
     fastfetch.enable = true;
     btop.enable = true;
     awscli.enable = true;
+
+    atuin = {
+      enable = true;
+      flags = [ "--disable-up-arrow" ];
+      settings = {
+        search_mode = "fuzzy";
+        style = "compact";
+        auto_sync = false;
+      };
+    };
   };
 }
