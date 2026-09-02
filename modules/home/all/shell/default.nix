@@ -13,7 +13,10 @@ let
 in
 {
   programs = {
-    fzf.enable = true;
+    fzf = {
+      enable = true;
+      historyWidget.command = "";
+    };
     eza.enable = true;
 
     zoxide = {
