@@ -17,12 +17,12 @@
 
     nil
     nixd
-    alejandra
+    nixfmt
 
     julia-bin
 
     gleam
-    erlang
+    beamPackages.erlang
     rebar3
 
     cmake
