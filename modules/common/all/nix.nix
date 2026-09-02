@@ -31,7 +31,7 @@ in
   nix = {
     enable = true;
     package =
-      if pkgs.stdenv.isDarwin then
+      if pkgs.stdenv.hostPlatform.isDarwin then
         pkgs.lixPackageSets.stable.lix.overrideAttrs (_: {
           doInstallCheck = false;
         })
@@ -46,7 +46,7 @@ in
       options = "--delete-older-than 30d";
     }
     // (
-      if pkgs.stdenv.isLinux then
+      if pkgs.stdenv.hostPlatform.isLinux then
         { dates = "weekly"; }
       else
         {
@@ -64,11 +64,11 @@ in
       max-jobs = "auto";
       experimental-features = "nix-command flakes";
 
-      extra-platforms = lib.mkIf pkgs.stdenv.isDarwin "aarch64-darwin x86_64-darwin";
+      extra-platforms = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin "aarch64-darwin x86_64-darwin";
 
       trusted-users = [
         "root"
-        (if pkgs.stdenv.isDarwin then flake.config.me.username else "@wheel")
+        (if pkgs.stdenv.hostPlatform.isDarwin then flake.config.me.username else "@wheel")
       ];
 
       substituters = [

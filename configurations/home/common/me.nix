@@ -13,7 +13,7 @@ in
   home.homeDirectory =
     if me.username == "root" then
       lib.mkForce "/root"
-    else if pkgs.stdenv.isDarwin then
+    else if pkgs.stdenv.hostPlatform.isDarwin then
       lib.mkDefault "/Users/${me.username}"
     else
       lib.mkDefault "/home/${me.username}";
