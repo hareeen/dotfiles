@@ -99,6 +99,8 @@
     btop.enable = true;
     awscli.enable = true;
 
+    nh.enable = true;
+
     atuin = {
       enable = true;
       flags = [ "--disable-up-arrow" ];
