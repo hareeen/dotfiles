@@ -3,57 +3,60 @@
   pkgs,
   lib,
   ...
-}: let
+}:
+let
   inherit (flake) inputs;
   inherit (inputs) self;
-in {
+in
+{
   nixpkgs = {
     config = {
       allowBroken = true;
       allowUnsupportedSystem = true;
       allowUnfree = true;
     };
-    overlays =
-      lib.attrValues self.overlays
-      ++ [
-        (final: prev: {
-          direnv = prev.direnv.overrideAttrs (_: {
-            doCheck = false;
-            doInstallCheck = false;
-          });
-          gleam = prev.gleam.overrideAttrs (_: {
-            doCheck = false;
-          });
-        })
-      ];
+    overlays = lib.attrValues self.overlays ++ [
+      (final: prev: {
+        direnv = prev.direnv.overrideAttrs (_: {
+          doCheck = false;
+          doInstallCheck = false;
+        });
+        gleam = prev.gleam.overrideAttrs (_: {
+          doCheck = false;
+        });
+      })
+    ];
   };
 
   nix = {
     enable = true;
     package =
-      if pkgs.stdenv.isDarwin
-      then pkgs.lixPackageSets.stable.lix.overrideAttrs (_: {doInstallCheck = false;})
-      else pkgs.lixPackageSets.stable.lix;
+      if pkgs.stdenv.isDarwin then
+        pkgs.lixPackageSets.stable.lix.overrideAttrs (_: {
+          doInstallCheck = false;
+        })
+      else
+        pkgs.lixPackageSets.stable.lix;
 
-    nixPath = ["nixpkgs=${flake.inputs.nixpkgs}"];
+    nixPath = [ "nixpkgs=${flake.inputs.nixpkgs}" ];
     registry.nixpkgs.flake = flake.inputs.nixpkgs;
 
-    gc =
-      {
-        automatic = true;
-        options = "--delete-older-than 30d";
-      }
-      // (
-        if pkgs.stdenv.isLinux
-        then {dates = "weekly";}
-        else {
+    gc = {
+      automatic = true;
+      options = "--delete-older-than 30d";
+    }
+    // (
+      if pkgs.stdenv.isLinux then
+        { dates = "weekly"; }
+      else
+        {
           interval = {
             Weekday = 0;
             Hour = 0;
             Minute = 0;
           };
         }
-      );
+    );
 
     optimise.automatic = true;
 
@@ -65,11 +68,7 @@ in {
 
       trusted-users = [
         "root"
-        (
-          if pkgs.stdenv.isDarwin
-          then flake.config.me.username
-          else "@wheel"
-        )
+        (if pkgs.stdenv.isDarwin then flake.config.me.username else "@wheel")
       ];
 
       substituters = [

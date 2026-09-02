@@ -1,6 +1,8 @@
-{flake, ...}: let
+{ flake, ... }:
+let
   inherit (flake.config) opt;
-in {
+in
+{
   programs.helix = {
     enable = true;
     defaultEditor = !opt.enableVim;
@@ -33,9 +35,17 @@ in {
           auto-format = true;
           formatter = {
             command = "ruff";
-            args = ["format" "--line-length" "88" "-"];
+            args = [
+              "format"
+              "--line-length"
+              "88"
+              "-"
+            ];
           };
-          language-servers = ["ty" "ruff"];
+          language-servers = [
+            "ty"
+            "ruff"
+          ];
         }
       ];
     };

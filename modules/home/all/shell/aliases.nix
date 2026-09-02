@@ -97,13 +97,18 @@
     "glgp" = "git log --stat --patch";
     "glo" = "git log --oneline --decorate";
     "globurl" = "noglob urlglobber ";
-    "glod" = "git log --graph --pretty=\"%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset\"";
-    "glods" = "git log --graph --pretty=\"%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset\" --date=short";
+    "glod" =
+      "git log --graph --pretty=\"%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset\"";
+    "glods" =
+      "git log --graph --pretty=\"%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset\" --date=short";
     "glog" = "git log --oneline --decorate --graph";
     "gloga" = "git log --oneline --decorate --graph --all";
-    "glol" = "git log --graph --pretty=\"%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset\"";
-    "glola" = "git log --graph --pretty=\"%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset\" --all";
-    "glols" = "git log --graph --pretty=\"%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset\" --stat";
+    "glol" =
+      "git log --graph --pretty=\"%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset\"";
+    "glola" =
+      "git log --graph --pretty=\"%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset\" --all";
+    "glols" =
+      "git log --graph --pretty=\"%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset\" --stat";
     "glp" = "_git_log_prettily";
     "gm" = "git merge";
     "gma" = "git merge --abort";
@@ -176,7 +181,8 @@
     "gts" = "git tag --sign";
     "gtv" = "git tag | sort -V";
     "gunignore" = "git update-index --no-assume-unchanged";
-    "gunwip" = "git rev-list --max-count=1 --format=\"%s\" HEAD | grep -q \"\\\\--wip--\" && git reset HEAD~1";
+    "gunwip" =
+      "git rev-list --max-count=1 --format=\"%s\" HEAD | grep -q \"\\\\--wip--\" && git reset HEAD~1";
     "gwch" = "git whatchanged -p --abbrev-commit --pretty=medium";
     "gwipe" = "git reset --hard && git clean --force -df";
     "gwt" = "git worktree";

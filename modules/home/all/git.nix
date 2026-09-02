@@ -2,10 +2,12 @@
   flake,
   lib,
   ...
-}: let
+}:
+let
   inherit (flake.config) me;
   inherit (flake.config) opt;
-in {
+in
+{
   programs = {
     git = {
       enable = true;
@@ -18,10 +20,7 @@ in {
           email = lib.mkIf (me ? email) me.email;
         };
         init.defaultBranch = "main";
-        core.editor =
-          if opt.enableVim
-          then "nvim"
-          else "hx";
+        core.editor = if opt.enableVim then "nvim" else "hx";
         pull.rebase = "false";
       };
 

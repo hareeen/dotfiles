@@ -1,6 +1,7 @@
 let
   inherit (import ./shell/aliases.nix) aliases abbrs;
-in {
+in
+{
   programs.zsh = {
     enable = true;
     enableCompletion = true;

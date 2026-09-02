@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   home.file = {
     rustfmtToml = {
       enable = true;
@@ -8,7 +8,8 @@
   };
 
   home.packages = with pkgs; [
-    (with fenix;
+    (
+      with fenix;
       combine [
         stable.cargo
         stable.clippy
@@ -16,7 +17,8 @@
         stable.rustc
         complete.rustfmt
         targets.wasm32-unknown-unknown.stable.rust-std
-      ])
+      ]
+    )
 
     rust-analyzer
 

@@ -2,9 +2,11 @@
   flake,
   pkgs,
   ...
-}: let
+}:
+let
   inherit (flake.config) opt;
-in {
+in
+{
   programs.ghostty = {
     enable = true;
     package = pkgs.ghostty;

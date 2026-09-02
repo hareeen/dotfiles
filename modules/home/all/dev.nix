@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   imports = [
     ./dev/ocaml.nix
     ./dev/rust.nix

@@ -1,7 +1,9 @@
-{flake, ...}: let
+{ flake, ... }:
+let
   inherit (flake) inputs;
   inherit (inputs) self;
-in {
+in
+{
   imports = [
     ./common/me.nix
     self.homeModules.default

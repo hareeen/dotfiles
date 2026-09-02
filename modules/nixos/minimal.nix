@@ -2,10 +2,12 @@
   flake,
   pkgs,
   ...
-}: let
+}:
+let
   inherit (flake) inputs;
   inherit (inputs) self;
-in {
+in
+{
   imports = [
     self.nixosModules.common
   ];
@@ -16,7 +18,7 @@ in {
     uid = 0;
     shell = pkgs.zsh;
     isSystemUser = true;
-    extraGroups = ["wheel"];
+    extraGroups = [ "wheel" ];
   };
 
   system.stateVersion = "24.11";

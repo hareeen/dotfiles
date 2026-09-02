@@ -1,6 +1,8 @@
-{flake, ...}: let
+{ flake, ... }:
+let
   inherit (flake) inputs;
-in {
+in
+{
   imports = [
     inputs.nixvim.homeModules.nixvim
   ];
@@ -309,10 +311,10 @@ in {
         autoEnableSources = true;
         settings = {
           sources = [
-            {name = "nvim_lsp";}
-            {name = "path";}
-            {name = "buffer";}
-            {name = "luasnip";}
+            { name = "nvim_lsp"; }
+            { name = "path"; }
+            { name = "buffer"; }
+            { name = "luasnip"; }
           ];
           mapping = {
             "<C-d>" = "cmp.mapping.scroll_docs(-4)";

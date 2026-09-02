@@ -2,12 +2,14 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   imports = [
     ./k9s
   ];
 
-  home.packages = with pkgs;
+  home.packages =
+    with pkgs;
     [
       # Core system utilities
       coreutils-full
