@@ -16,7 +16,7 @@ in
       allowUnfree = true;
     };
     overlays = lib.attrValues self.overlays ++ [
-      (final: prev: {
+      (_: prev: {
         direnv = prev.direnv.overrideAttrs (_: {
           doCheck = false;
           doInstallCheck = false;
