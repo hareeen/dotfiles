@@ -1,5 +1,3 @@
-set shell := ["fish", "-c"]
-
 export NH_FLAKE := justfile_directory()
 
 rebuild := if os() == "macos" { "darwin" } else { "os" }
