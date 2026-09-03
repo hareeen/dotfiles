@@ -17,6 +17,8 @@ in
       reflect-ghostty() {
         command infocmp -x xterm-ghostty | ssh "$@" -- tic -x -
       }
+
+      [[ -f "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
     '';
     autosuggestion.enable = true;
     syntaxHighlighting = {
