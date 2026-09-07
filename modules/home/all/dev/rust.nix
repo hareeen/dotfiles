@@ -3,7 +3,13 @@
     rustfmtToml = {
       enable = true;
       source = ./rustfmt.toml;
-      target = ".config/rustfmt/rustfmt.toml";
+      # rustfmt resolves its user config through the `dirs` crate, which ignores
+      # XDG on Darwin and looks under Application Support instead of ~/.config.
+      target =
+        if pkgs.stdenv.hostPlatform.isDarwin then
+          "Library/Application Support/rustfmt/rustfmt.toml"
+        else
+          ".config/rustfmt/rustfmt.toml";
     };
   };
 
