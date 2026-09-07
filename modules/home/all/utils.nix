@@ -73,6 +73,7 @@
       hyperfine
       tokei
       evans
+      grpcurl
       bunbun
       wasmtime
       usql
