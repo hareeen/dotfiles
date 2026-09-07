@@ -33,5 +33,20 @@ in
       description = "Sync Ghostty terminfo to a remote host";
       body = "command infocmp -x xterm-ghostty | ssh $argv -- tic -x -";
     };
+    functions.withenv = {
+      description = "withenv .env.foo [.env.bar ...] -- cmd";
+      body = ''
+        set -l vars
+        while test (count $argv) -gt 0; and test "$argv[1]" != "--"
+          for line in (grep -v '^\s*#' $argv[1] | grep -v '^\s*$')
+            set -l kv (string split -m 1 '=' $line)
+            set -a vars "$kv[1]="(string trim -c '"\''' $kv[2])
+          end
+          set -e argv[1]
+        end
+        set -e argv[1]
+        env $vars $argv
+      '';
+    };
   };
 }
