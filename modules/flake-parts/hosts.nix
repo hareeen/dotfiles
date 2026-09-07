@@ -15,8 +15,11 @@ let
 
   # Shared by every home-manager evaluation, standalone or embedded in a system.
   homeCommon = { pkgs, ... }: {
+    home.sessionPath = [
+      "$HOME/.local/bin"
+    ]
     # nix-darwin and home-manager binaries are not on the default macOS PATH.
-    home.sessionPath = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin [
+    ++ lib.optionals pkgs.stdenv.hostPlatform.isDarwin [
       "/etc/profiles/per-user/$USER/bin"
       "/nix/var/nix/profiles/system/sw/bin"
       "/usr/local/bin"
