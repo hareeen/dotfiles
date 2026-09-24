@@ -7,7 +7,11 @@ in
     enable = true;
     defaultEditor = !opt.enableVim;
     settings = {
-      theme = "amberwood";
+      settings.theme = "vesper_transparent";
+      themes.vesper_transparent = {
+        inherits = "vesper";
+        "ui.background" = { };
+      };
       editor = {
         bufferline = "multiple";
         cursor-shape = {

@@ -93,11 +93,22 @@
     ];
 
   programs = {
+    bat = {
+      enable = true;
+      config.theme = "ansi";
+    };
+
+    btop = {
+      enable = true;
+      settings = {
+        color_theme = "TTY";
+        theme_background = false;
+      };
+    };
+
     ripgrep.enable = true;
-    bat.enable = true;
     fd.enable = true;
     fastfetch.enable = true;
-    btop.enable = true;
     awscli.enable = true;
 
     nh.enable = true;

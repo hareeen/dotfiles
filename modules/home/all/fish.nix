@@ -7,6 +7,7 @@ in
     shellAbbrs = abbrs;
     shellAliases = aliases;
     interactiveShellInit = ''
+      set -g fish_greeting
       set -g fish_color_autosuggestion '555' 'brblack'
       set -g fish_color_cancel -r
       set -g fish_color_command --bold
