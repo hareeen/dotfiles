@@ -44,7 +44,8 @@ in
         add_newline = false;
 
         format = "$hostname$directory$git_branch$git_state$git_status$character";
-        right_format = "$python$nix_shell$cmd_duration";
+        # Transient cmd_duration leads so nix_shell stays pinned to the right edge.
+        right_format = "$cmd_duration$python$nix_shell";
 
         character = {
           success_symbol = "[λ](#FFC799)";
@@ -95,13 +96,13 @@ in
         };
 
         nix_shell = {
-          format = "[$symbol]($style) ";
+          format = "[$symbol]($style)";
           style = "blue";
         };
 
         cmd_duration = {
           min_time = 2000;
-          format = "[$duration]($style)";
+          format = "[$duration]($style) ";
           style = "bright-black";
         };
 
