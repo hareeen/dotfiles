@@ -6,12 +6,12 @@ in
   programs.helix = {
     enable = true;
     defaultEditor = !opt.enableVim;
+    themes.vesper_transparent = {
+      inherits = "vesper";
+      "ui.background" = { };
+    };
     settings = {
-      settings.theme = "vesper_transparent";
-      themes.vesper_transparent = {
-        inherits = "vesper";
-        "ui.background" = { };
-      };
+      theme = "vesper_transparent";
       editor = {
         bufferline = "multiple";
         cursor-shape = {
