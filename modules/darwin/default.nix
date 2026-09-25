@@ -22,5 +22,10 @@ in
     shell = if opt.enableFish then pkgs.fish else pkgs.zsh;
   };
 
+  nix.linux-builder = {
+    enable = true;
+    ephemeral = true;
+  };
+
   system.stateVersion = 6;
 }
