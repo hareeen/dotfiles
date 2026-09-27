@@ -15,11 +15,10 @@
     [
       # Core system utilities
       procps
-      file
-      tree
-      lsof
     ]
     ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
+      file
+      lsof
       psmisc
       gnused
       bubblewrap
@@ -50,8 +49,6 @@
       curl
       wget
       xh
-      socat
-      doggo
       shadowsocks-rust
       proxychains-ng
 
@@ -63,22 +60,14 @@
       jq
 
       # File & disk
-      dust
-      hexyl
       rsync
       rclone
-      convmv
 
       # Dev tools
       cachix
-      entr
-      hyperfine
-      tokei
-      evans
       grpcurl
       bunbun
       wasmtime
-      usql
 
       # Media & docs
       pandoc
