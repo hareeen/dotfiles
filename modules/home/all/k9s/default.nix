@@ -6,10 +6,11 @@
       settings.k9s.ui = {
         enableMouse = true;
         logoless = true;
+        skin = "ansi";
       };
 
       skins = {
-        catppuccin-mocha-transparent = ./catppuccin-mocha-transparent.yaml;
+        ansi = ./ansi.yaml;
       };
     };
   };

@@ -1,0 +1,102 @@
+# Adapted from catppuccin-mocha-transparent with every color swapped for a tcell ANSI name (maroon = palette 1, navy = 4, ...), so k9s follows the terminal theme.
+
+k9s:
+  body:
+    fgColor: default
+    bgColor: default
+    logoColor: purple
+  prompt:
+    fgColor: default
+    bgColor: default
+    suggestColor: navy
+  help:
+    fgColor: default
+    bgColor: default
+    sectionColor: green
+    keyColor: navy
+    numKeyColor: red
+  frame:
+    title:
+      fgColor: teal
+      bgColor: default
+      highlightColor: fuchsia
+      counterColor: olive
+      filterColor: green
+    border:
+      fgColor: purple
+      focusColor: blue
+    menu:
+      fgColor: default
+      keyColor: navy
+      numKeyColor: red
+    crumbs:
+      fgColor: black
+      bgColor: default
+      activeColor: fuchsia
+    status:
+      newColor: navy
+      modifyColor: blue
+      addColor: green
+      pendingColor: yellow
+      errorColor: maroon
+      highlightColor: aqua
+      killColor: purple
+      completedColor: gray
+  info:
+    fgColor: yellow
+    sectionColor: default
+  views:
+    table:
+      fgColor: default
+      bgColor: default
+      cursorFgColor: white
+      cursorBgColor: gray
+      markColor: silver
+      header:
+        fgColor: olive
+        bgColor: default
+        sorterColor: aqua
+    xray:
+      fgColor: default
+      bgColor: default
+      cursorColor: gray
+      cursorTextColor: white
+      graphicColor: fuchsia
+    charts:
+      bgColor: default
+      chartBgColor: default
+      dialBgColor: default
+      defaultDialColors:
+        - green
+        - maroon
+      defaultChartColors:
+        - green
+        - maroon
+      resourceColors:
+        cpu:
+          - purple
+          - navy
+        mem:
+          - olive
+          - yellow
+    yaml:
+      keyColor: navy
+      valueColor: default
+      colonColor: silver
+    logs:
+      fgColor: default
+      bgColor: default
+      indicator:
+        fgColor: blue
+        bgColor: default
+        toggleOnColor: green
+        toggleOffColor: silver
+  dialog:
+    fgColor: olive
+    bgColor: default
+    buttonFgColor: black
+    buttonBgColor: default
+    buttonFocusFgColor: black
+    buttonFocusBgColor: fuchsia
+    labelFgColor: silver
+    fieldFgColor: default
