@@ -22,6 +22,12 @@ in
         init.defaultBranch = "main";
         core.editor = if opt.enableVim then "nvim" else "hx";
         pull.rebase = "false";
+        push.autoSetupRemote = true;
+        fetch.prune = true;
+        rebase.autoStash = true;
+        rerere.enabled = true;
+        merge.conflictStyle = "zdiff3";
+        diff.algorithm = "histogram";
       };
 
       ignores = [
@@ -31,6 +37,12 @@ in
       ];
 
       lfs.enable = true;
+    };
+
+    delta = {
+      enable = true;
+      enableGitIntegration = true;
+      options.navigate = true;
     };
 
     gh = {
