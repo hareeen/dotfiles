@@ -1,4 +1,5 @@
 {
+  flake,
   pkgs,
   lib,
   ...
@@ -6,6 +7,7 @@
 {
   imports = [
     ./k9s
+    flake.inputs.nix-index-database.homeModules.nix-index
   ];
 
   home.packages =
@@ -112,6 +114,9 @@
     awscli.enable = true;
 
     nh.enable = true;
+
+    nix-index.enable = true;
+    nix-index-database.comma.enable = true;
 
     atuin = {
       enable = true;
