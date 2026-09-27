@@ -17,6 +17,13 @@ in
 
   system = {
     defaults = {
+      NSGlobalDomain = {
+        InitialKeyRepeat = 30;
+        KeyRepeat = 2;
+        ApplePressAndHoldEnabled = false;
+        NSAutomaticPeriodSubstitutionEnabled = false;
+      };
+
       finder = {
         AppleShowAllExtensions = true;
         ShowPathbar = true;
