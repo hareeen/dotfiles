@@ -15,7 +15,7 @@ in
     enableFishIntegration = opt.enableFish;
 
     settings = {
-      theme = "Nvim Dark";
+      theme = "Vesper";
       font-family = [
         "BlexMono Nerd Font"
         "Pretendard"
