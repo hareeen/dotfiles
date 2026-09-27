@@ -1,11 +1,12 @@
+{ pkgs, lib, ... }:
 let
-  inherit (import ./shell/aliases.nix) aliases abbrs;
+  inherit (import ./shell/aliases.nix) aliases darwinAliases abbrs;
 in
 {
   programs.fish = {
     enable = true;
     shellAbbrs = abbrs;
-    shellAliases = aliases;
+    shellAliases = aliases // lib.optionalAttrs pkgs.stdenv.hostPlatform.isDarwin darwinAliases;
     interactiveShellInit = ''
       set -g fish_greeting
       set -g fish_color_autosuggestion '555' 'brblack'

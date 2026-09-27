@@ -1,5 +1,6 @@
+{ pkgs, lib, ... }:
 let
-  inherit (import ./shell/aliases.nix) aliases abbrs;
+  inherit (import ./shell/aliases.nix) aliases darwinAliases abbrs;
 in
 {
   programs.zsh = {
@@ -73,7 +74,7 @@ in
       share = true;
     };
 
-    shellAliases = aliases;
+    shellAliases = aliases // lib.optionalAttrs pkgs.stdenv.hostPlatform.isDarwin darwinAliases;
 
     zsh-abbr = {
       enable = true;

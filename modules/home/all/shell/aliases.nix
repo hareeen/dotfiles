@@ -14,6 +14,12 @@
     "run-help" = "man";
     "which-command" = "whence";
   };
+  darwinAliases = {
+    "flushdns" = "sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder";
+    "unq" = "xattr -dr com.apple.quarantine";
+    "xwipe" = "xattr -cr";
+    "adhoc-sign" = "codesign --force --deep --sign -";
+  };
   abbrs = {
     "g" = "git";
     "ga" = "git add";
