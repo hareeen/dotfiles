@@ -45,7 +45,7 @@ in
 
         format = "$hostname$directory$git_branch$git_state$git_status$character";
         # Transient cmd_duration leads so nix_shell stays pinned to the right edge.
-        right_format = "$cmd_duration$python$nix_shell";
+        right_format = "$cmd_duration$direnv$nix_shell";
 
         character = {
           success_symbol = "[λ](#FFC799)";
@@ -90,14 +90,19 @@ in
           diverged = "⇕";
         };
 
-        python = {
-          format = ''[(\($virtualenv\) )]($style)'';
-          style = "bright-black";
-        };
-
         nix_shell = {
           format = "[$symbol]($style)";
           style = "blue";
+        };
+
+        direnv = {
+          disabled = false;
+          format = "[$symbol$allowed]($style) ";
+          symbol = " ";
+          style = "bright-black";
+          allowed_msg = "";
+          not_allowed_msg = "blocked";
+          denied_msg = "denied";
         };
 
         cmd_duration = {
