@@ -9,7 +9,7 @@
     ruff
     ty
 
-    nodejs-slim
+    nodejs
     bun
 
     go

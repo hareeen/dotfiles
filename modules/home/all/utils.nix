@@ -76,6 +76,7 @@
 
       # Infra
       teleport
+      wrangler
       google-cloud-sdk
       kubectl
       kubernetes-helm
