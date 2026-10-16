@@ -105,7 +105,14 @@
 
     nh.enable = true;
 
-    nix-index.enable = true;
+    # The command-not-found hooks run nix-locate on every typo (~1s); comma and nix-locate stay available.
+    nix-index = {
+      enable = true;
+      enableBashIntegration = false;
+      enableZshIntegration = false;
+      enableFishIntegration = false;
+      enableNushellIntegration = false;
+    };
     nix-index-database.comma.enable = true;
 
     atuin = {
