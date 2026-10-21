@@ -7,12 +7,10 @@
 let
   inherit (flake.config) opt;
 
-  nerdFontSymbolsPreset = pkgs.fetchurl {
-    url = "https://starship.rs/presets/toml/nerd-font-symbols.toml";
-    hash = "sha256-uEgo0X18vjxhTAteue5ROnNAmLExsP5y5EkV94tqjOw=";
-  };
-
-  preset = fromTOML (builtins.readFile nerdFontSymbolsPreset);
+  # The starship.rs copy tracks upstream master; the source tree matches the installed binary.
+  preset = fromTOML (
+    builtins.readFile "${pkgs.starship.src}/docs/public/presets/toml/nerd-font-symbols.toml"
+  );
 in
 {
   programs = {
