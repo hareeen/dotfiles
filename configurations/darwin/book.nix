@@ -69,6 +69,8 @@ in
       };
 
       CustomUserPreferences."com.apple.desktopservices".DSDontWriteNetworkStores = true;
+      # Lists apps whose results Spotlight hides; activation overwrites toggles made in System Settings.
+      CustomUserPreferences."com.apple.Spotlight".EnabledPreferenceRules = [ "com.apple.Safari" ];
     };
   };
 
