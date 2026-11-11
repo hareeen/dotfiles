@@ -1,4 +1,4 @@
-{ flake, ... }:
+{ flake, pkgs, ... }:
 let
   inherit (flake) inputs;
 in
@@ -15,7 +15,8 @@ in
   programs.nixvim = {
     enable = true;
 
-    colorschemes.oxocarbon.enable = true;
+    extraPlugins = [ pkgs.vimPlugins.kanso-nvim ];
+    colorscheme = "kanso-ink";
 
     opts = {
       expandtab = true;
