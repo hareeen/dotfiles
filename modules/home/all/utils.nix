@@ -76,6 +76,7 @@
 
       # Infra
       teleport
+      openbao
       wrangler
       google-cloud-sdk
       kubectl
