@@ -26,5 +26,7 @@
     rebar3
 
     cmake
+    clang-tools
+    neocmakelsp
   ];
 }

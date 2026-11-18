@@ -205,6 +205,14 @@ in
           };
         }
         {
+          name = "c";
+          auto-format = true;
+        }
+        {
+          name = "cpp";
+          auto-format = true;
+        }
+        {
           name = "python";
           auto-format = true;
           formatter = {
