@@ -230,6 +230,8 @@ in
     };
     languages = {
       language-server.typos.command = "typos-lsp";
+      # Passing --query-driver also turns off the nixpkgs clangd wrapper's header injection, so headers come from the compiler in compile_commands.json (or the host's own toolchain) and match the build.
+      language-server.clangd.args = [ "--query-driver=/usr/bin/*,/nix/store/*/bin/*" ];
       language = [
         {
           name = "rust";
