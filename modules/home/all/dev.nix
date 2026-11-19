@@ -26,7 +26,8 @@
     rebar3
 
     cmake
-    clang-tools
+    # Pinned past the nixpkgs default because clangd 21 cannot parse CUDA 13 headers; drop the pin once the default reaches 22.
+    llvmPackages_22.clang-tools
     neocmakelsp
 
     marksman
