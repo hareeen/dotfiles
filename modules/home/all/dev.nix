@@ -28,5 +28,16 @@
     cmake
     clang-tools
     neocmakelsp
+
+    marksman
+    taplo
+    yaml-language-server
+    vscode-langservers-extracted
+    bash-language-server
+    fish-lsp
+    typos-lsp
+
+    yazi
+    lazygit
   ];
 }

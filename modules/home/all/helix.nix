@@ -1,6 +1,17 @@
 { flake, ... }:
 let
   inherit (flake.config) opt;
+  # Setting language-servers replaces Helix's default list, so each entry restates the defaults before appending typos.
+  withTypos = servers: servers ++ [ "typos" ];
+  yaziChooser = "/tmp/helix-yazi-chooser";
+  # TUIs launched through :insert-output leave the alternate screen on exit, so these restore Helix's terminal state.
+  # The escape goes through the blocking :insert-output rather than :sh, which runs as a background job and would clear the screen after :redraw repaints it.
+  restoreTerminal = [
+    '':insert-output printf "\x1b[?1049h\x1b[?2004h" > /dev/tty''
+    ":redraw"
+    ":set mouse false"
+    ":set mouse true"
+  ];
 in
 {
   programs.helix = {
@@ -181,20 +192,50 @@ in
       theme = "kanso_ink";
       editor = {
         bufferline = "multiple";
+        color-modes = true;
         cursor-shape = {
           insert = "bar";
           select = "underline";
         };
+        end-of-line-diagnostics = "hint";
+        file-picker.hidden = false;
         indent-guides.render = true;
+        inline-diagnostics.cursor-line = "warning";
         lsp.display-inlay-hints = true;
+      };
+      keys.normal = {
+        esc = [
+          "collapse_selection"
+          "keep_primary_selection"
+        ];
+        C-y = [
+          ":insert-output rm -f ${yaziChooser}"
+          '':insert-output yazi "%{buffer_name}" --chooser-file=${yaziChooser}''
+        ]
+        ++ restoreTerminal
+        # Quitting yazi without a pick leaves no chooser file, so fall back to reopening the current buffer instead of erroring.
+        ++ [ '':open %sh{[ -s ${yaziChooser} ] && cat ${yaziChooser} || echo "%{buffer_name}"}'' ];
+        # Runs in a scratch buffer so nothing lazygit or the terminal restore prints lands in the file, then reloads to pick up checkouts and discarded changes.
+        C-g = [
+          ":write-all"
+          ":new"
+          ":insert-output lazygit"
+        ]
+        ++ restoreTerminal
+        ++ [
+          ":buffer-close!"
+          ":reload-all"
+        ];
       };
     };
     languages = {
+      language-server.typos.command = "typos-lsp";
       language = [
         {
           name = "rust";
           auto-format = true;
           formatter.command = "rustfmt";
+          language-servers = withTypos [ "rust-analyzer" ];
         }
         {
           name = "nix";
@@ -203,14 +244,20 @@ in
             command = "nixfmt";
             args = [ "-" ];
           };
+          language-servers = withTypos [
+            "nil"
+            "nixd"
+          ];
         }
         {
           name = "c";
           auto-format = true;
+          language-servers = withTypos [ "clangd" ];
         }
         {
           name = "cpp";
           auto-format = true;
+          language-servers = withTypos [ "clangd" ];
         }
         {
           name = "python";
@@ -224,9 +271,23 @@ in
               "-"
             ];
           };
-          language-servers = [
+          language-servers = withTypos [
             "ty"
             "ruff"
+          ];
+        }
+        {
+          name = "go";
+          language-servers = withTypos [
+            "gopls"
+            "golangci-lint-lsp"
+          ];
+        }
+        {
+          name = "markdown";
+          language-servers = withTypos [
+            "marksman"
+            "markdown-oxide"
           ];
         }
       ];
