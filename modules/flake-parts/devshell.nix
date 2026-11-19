@@ -30,6 +30,10 @@
           stages = [ "pre-push" ];
           excludes = [ "configurations/nixos/hardware-configurations/.*" ];
         };
+        actionlint = {
+          enable = true;
+          stages = [ "pre-push" ];
+        };
       };
 
       devShells.default = pkgs.mkShell {
